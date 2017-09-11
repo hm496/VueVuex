@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+node_modules/
+/one-app/build/
+npm-debug.log
+yarn-error.log

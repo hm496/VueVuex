@@ -16,7 +16,7 @@ const isMock = !!process.env.MOCK_SERVER;
 if (isMock) {
   console.log('Using mock server...');
 }
-proxy.on('error', function (e) {
+proxy.on('error', function(e) {
   console.log(e);
   console.log('@@//代理服务器错误!');
 });
@@ -30,8 +30,7 @@ let webpackDevOptions = {
   stats: {
     colors: true,
     chunks: false
-  },
-  quiet: true
+  }
 };
 
 //路由
@@ -48,14 +47,14 @@ app.use(express.static('static'));
 app.all(/^\/api\/(.*)/, (req, res) => {
   if (isMock) {
     //Mock服务器
-    proxy.web(req, res, { target: 'http://localhost:3011' });
+    proxy.web(req, res, { target: 'http://localhost:8800' });
   } else {
     //默认服务器
     proxy.web(req, res, { target: 'http://localhost:5000' });
   }
 });
 
-app.get('/', function (req, res, next) {
+app.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 

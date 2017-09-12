@@ -1,22 +1,19 @@
 //兼容polyfill
 import 'babel-polyfill';
-import 'whatwg-fetch';
-//vue相关文件
+//vue核心
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 //vue入口组件
 import App from './App.vue';
-//路由
-import routes from "./routes/routes.js";
-//初始化css
-import './styles/normalize.css';
+//vue路由
+import router from "./routes/router.js";
+//全局样式
+import './styles/common_css.js';
+//全局js
+import './utils/axios_instance';
 
+//Vue Plugin
 Vue.use(VueRouter);
-
-const router = new VueRouter({
-  // mode: 'history',//html5 history
-  routes, // （缩写）相当于 routes: routes
-});
 
 new Vue({
   el: "#root",

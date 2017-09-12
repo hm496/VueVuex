@@ -9,8 +9,7 @@ module.exports = {
   devtool: "source-map",
   entry: {
     app: ['./src/index'],
-    vendors: ['vue', 'vue-router', 'vuex'],
-    polyfill: ['babel-polyfill', 'whatwg-fetch'],
+    vendors: ['vue', 'vue-router', 'vuex', 'babel-polyfill'],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -115,7 +114,7 @@ module.exports = {
       __DEV__: false,
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendors', 'polyfill'],
+      names: ['vendors'],
     }),//提取公共模块
     new htmlWebpackPlugin({
       template: path.join(__dirname, './src/index.ejs'),
@@ -126,7 +125,7 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin({
       filename: (getPath) => {
-        return getPath('css/[name].css').replace('css/js', 'css');
+        return getPath('css/[name].css');
       },
       allChunks: true,
     }),

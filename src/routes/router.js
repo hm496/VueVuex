@@ -1,6 +1,7 @@
+import VueRouter from 'vue-router';
+//同步加载组件
 import Home from "../views/Home.vue";
-
-//异步加载
+//异步加载组件
 const Detail = () => import('../views/Detail.vue');
 const User = () => import('../views/User.vue');
 const NotFoundComponent = () => import('../views/NotFoundComponent.vue');
@@ -8,7 +9,7 @@ const NotFoundComponent = () => import('../views/NotFoundComponent.vue');
 const routes = [
   {
     path: '/',
-    component: Home
+    redirect: '/home'
   },
   {
     name: 'home',
@@ -31,4 +32,10 @@ const routes = [
     component: NotFoundComponent
   }
 ];
-export default routes;
+
+const router = new VueRouter({
+  // mode: 'history',//html5 history
+  routes, // （缩写）相当于 routes: routes
+});
+
+export default router;

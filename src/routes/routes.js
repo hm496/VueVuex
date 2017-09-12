@@ -1,5 +1,6 @@
 import Home from "../views/Home.vue";
 
+//异步加载
 const Detail = () => import('../views/Detail.vue');
 const User = () => import('../views/User.vue');
 const NotFoundComponent = () => import('../views/NotFoundComponent.vue');

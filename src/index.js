@@ -14,6 +14,7 @@ import './styles/normalize.css';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+  // mode: 'history',//html5 history
   routes, // （缩写）相当于 routes: routes
 });
 

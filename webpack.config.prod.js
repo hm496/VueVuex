@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     app: ['./src/index'],
     vendors: ['vue', 'vue-router', 'vuex'],
+    polyfill: ['babel-polyfill', 'whatwg-fetch'],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -114,8 +115,7 @@ module.exports = {
       __DEV__: false,
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendors',
-      filename: "vendor.js"
+      names: ['vendors', 'polyfill'],
     }),//提取公共模块
     new htmlWebpackPlugin({
       template: path.join(__dirname, './src/index.ejs'),

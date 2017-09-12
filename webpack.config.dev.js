@@ -9,7 +9,7 @@ module.exports = {
       'webpack-hot-middleware/client',
       './src/index',
     ],
-    vendors: ['vue', 'vue-router', 'vuex'],
+    vendors: ['vue', 'vue-router', 'vuex', 'babel-polyfill', 'whatwg-fetch'],
   },
   output: {
     path: path.resolve(__dirname, 'build'),

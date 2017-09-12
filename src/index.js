@@ -1,17 +1,15 @@
 //兼容polyfill
 import 'babel-polyfill';
 import 'whatwg-fetch';
-
 //vue相关文件
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-
-
-//入口文件
+//vue入口组件
 import App from './App.vue';
-
 //路由
 import routes from "./routes/routes.js";
+//初始化css
+import './styles/normalize.css';
 
 Vue.use(VueRouter);
 

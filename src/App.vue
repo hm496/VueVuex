@@ -3,7 +3,7 @@
 </template>
 
 <script>
-  import s from './ac.css';
+  import aa from './ac.css';
 
   module.exports = {
     name: '',
@@ -11,7 +11,7 @@
     props: {},
     data: function () {
       return {
-        aa: s
+        aa: aa
       }
     },
     methods: {},

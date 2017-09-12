@@ -1,6 +1,7 @@
 import Home from "../views/Home.vue";
-import Detail from "../views/Detail.vue";
-import User from "../views/User.vue";
+
+const Detail = () => import('../views/Detail.vue');
+const User = () => import('../views/User.vue');
 
 const routes = [
   {
@@ -8,14 +9,17 @@ const routes = [
     component: Home
   },
   {
+    name: 'home',
     path: '/home',
     component: Home
   },
   {
+    name: 'detail',
     path: '/detail',
     component: Detail
   },
   {
+    name: 'user',
     path: '/user/:id',
     component: User
   }

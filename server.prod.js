@@ -14,10 +14,10 @@ if (isMock) {
   console.log('Using mock server...');
 }
 proxy.on('error', function (e) {
-  console.log('@@//代理服务器错误!');
   console.log(e);
+  console.log('@@//代理服务器错误!');
 });
-//路由
+//gzip,分块传输
 app.use(compression());
 
 app.use(express.static('build'));

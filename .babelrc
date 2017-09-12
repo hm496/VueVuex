@@ -4,6 +4,7 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-vue-jsx"
+    "transform-vue-jsx",
+    "syntax-dynamic-import"
   ]
 }

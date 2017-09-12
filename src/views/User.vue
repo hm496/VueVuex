@@ -18,7 +18,6 @@
     watch: {},
   };
 </script>
-
 <style lang="scss" module>
 
 </style>

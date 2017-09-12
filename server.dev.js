@@ -16,7 +16,10 @@ const isMock = !!process.env.MOCK_SERVER;
 if (isMock) {
   console.log('Using mock server...');
 }
-
+proxy.on('error', function (e) {
+  console.log('@@//代理服务器错误!');
+  console.log(e);
+});
 
 let webpackDevOptions = {
   historyApiFallback: true,

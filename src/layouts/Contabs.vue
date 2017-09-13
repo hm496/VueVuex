@@ -1,11 +1,6 @@
 <template>
-  <div class="frame">
-    <div class="header">
-      导航栏
-    </div>
-    <div class="container">
-      <router-view></router-view>
-    </div>
+  <div :class="$style.contabsroot">
+    标签导航栏
   </div>
 </template>
 
@@ -24,5 +19,9 @@
 </script>
 
 <style lang="scss" module>
-
+  .contabsroot {
+    height: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e4eaec;
+  }
 </style>

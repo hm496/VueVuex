@@ -1,12 +1,10 @@
 //vue-router
 import VueRouter from 'vue-router';
-//同步加载组件
-import Home from "../views/Home.vue";
-//主体框架
-import Frame from "../views/Frame.vue";
-//登录页面
-import Login from "../views/Login.vue";
-//异步加载组件
+
+import Home from "../views/Home.vue"; //首页
+import Frame from "../layouts/Frame.vue"; //主体框架
+import Login from "../views/Login.vue"; //登录页面
+
 const Detail = () => import('../views/Detail.vue');
 const User = () => import('../views/User.vue');
 const NotFoundComponent = () => import('../views/NotFoundComponent.vue');

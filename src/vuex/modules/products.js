@@ -1,5 +1,5 @@
 import shop from '../../api/shop'
-import * as types from '../mutation-types'
+import * as types from '../mutation_types'
 
 // initial state
 const state = {

@@ -6,3 +6,6 @@ import './initVue';
 import './styles/common_css.js';
 //路由状态同步到Vuex
 import './routes/vuex-router';
+
+//试验
+import './utils/axios_instance';

@@ -1,7 +1,8 @@
 import axios from 'axios';
+import serverPath from './serverPath.js';
 
 const instance = axios.create({
-  baseURL: '/api/',
+  baseURL: `/${serverPath.prefix}/`,
 });
 window.axios = instance;
 

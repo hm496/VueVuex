@@ -23,12 +23,14 @@ app.use(compression());
 app.use(express.static('build'));
 
 //api接口代理
-app.all(/^\/api\/(.*)/, (req, res) => {
+app.all(/^\/zhba\/(.*)/, (req, res) => {
   if (isMock) {
     //Mock服务器
+    console.log('Mock服务器');
     proxy.web(req, res, { target: 'http://localhost:3011' });
   } else {
-    //默认服务器
+    //proxy服务器
+    console.log('proxy服务器');
     proxy.web(req, res, { target: 'http://localhost:5000' });
   }
 });

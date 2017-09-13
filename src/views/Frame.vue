@@ -1,6 +1,11 @@
 <template>
-  <div>
-    导航栏
+  <div class="frame">
+    <div class="header">
+      导航栏
+    </div>
+    <div class="container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 

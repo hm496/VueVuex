@@ -1,6 +1,6 @@
 <template>
   <div>
-    导航栏
+    登录页面
   </div>
 </template>
 

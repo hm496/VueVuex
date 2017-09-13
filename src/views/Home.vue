@@ -1,5 +1,5 @@
 <template>
-  <div>这里是HOME</div>
+  <div :class="$style.root">这里是HOME</div>
 </template>
 
 <script>
@@ -17,5 +17,8 @@
 </script>
 
 <style lang="scss" module>
-
+  .root {
+    height: 100%;
+    width: 100%;
+  }
 </style>

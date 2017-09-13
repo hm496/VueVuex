@@ -1,4 +1,4 @@
-import shop from '../../api/shop'
+// import shop from '../../api/shop'
 import * as types from '../mutation_types'
 
 // initial state
@@ -12,6 +12,8 @@ const state = {
 const getters = {
   checkoutStatus: state => state.checkoutStatus
 }
+
+const shop = {};//??
 
 // actions
 const actions = {

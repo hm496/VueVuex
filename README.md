@@ -1,6 +1,6 @@
-# One React App
+# One Vue App
 
-Do something with React&Redux.
+Do something with Vue&Vuex.
 
 ## Run
 ### `npm install` 

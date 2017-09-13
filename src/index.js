@@ -3,6 +3,7 @@ import 'babel-polyfill';
 //vue核心
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Vuex from 'vuex'
 //vue入口组件
 import App from './App.vue';
 //vue路由
@@ -13,6 +14,7 @@ import './styles/common_css.js';
 import './utils/axios_instance';
 
 //Vue Plugin
+Vue.use(Vuex);
 Vue.use(VueRouter);
 
 new Vue({

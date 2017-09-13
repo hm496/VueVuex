@@ -93,7 +93,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(jpe?g|png|gif|svg)(\?v=\d+\.\d+\.\d+)?$/i,
+        test: /\.(jpe?g|png|gif|svg|ico)(\?v=\d+\.\d+\.\d+)?$/i,
         loader: 'url-loader',
         options: {
           limit: 8192,

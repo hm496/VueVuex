@@ -13,7 +13,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: "[name]/entry.js",
+    filename: "js/[name].min.js",
+    chunkFilename: 'js/[name].min.js',
     publicPath: "/"
   },
   module: {

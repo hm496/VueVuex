@@ -57,7 +57,7 @@ app.all(apiRegExp, (req, res) => {
   } else {
     //proxy服务器
     console.log('proxy服务器');
-    proxy.web(req, res, { target: 'http://localhost:5000' });
+    proxy.web(req, res, { target: 'http://172.16.0.25:5000/' });
   }
 });
 

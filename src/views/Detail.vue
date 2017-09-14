@@ -3,6 +3,10 @@
 </template>
 
 <script>
+  function* foo() {
+
+  }
+
   module.exports = {
     name: '',
     componentName: '',

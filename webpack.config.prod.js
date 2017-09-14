@@ -4,7 +4,7 @@ let htmlWebpackPlugin = require('html-webpack-plugin');
 let fs = require('fs');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let cssnano = require('cssnano');
-let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   devtool: "#source-map",
@@ -33,11 +33,18 @@ module.exports = {
           },
           loaders: {
             scss: ExtractTextPlugin.extract({
-              use: "css-loader!postcss-loader!sass-loader",
+              use: [
+                { loader: 'css-loader', options: { sourceMap: true } },
+                { loader: 'postcss-loader', options: { sourceMap: true } },
+                { loader: 'sass-loader', options: { sourceMap: true } }
+              ],
               fallback: "vue-style-loader",
             }),
             css: ExtractTextPlugin.extract({
-              use: 'css-loader!postcss-loader',
+              use: [
+                { loader: 'css-loader', options: { sourceMap: true } },
+                { loader: 'postcss-loader', options: { sourceMap: true } },
+              ],
               fallback: 'vue-style-loader'
             })
           }
@@ -60,12 +67,13 @@ module.exports = {
           use: [{
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               modules: true,
               localIdentName: '[name]__[local]-[hash:base64:5]',
             }
           },
-            "postcss-loader",
-            "sass-loader"
+            { loader: 'postcss-loader', options: { sourceMap: true } },
+            { loader: 'sass-loader', options: { sourceMap: true } }
           ]
         }),
         include: [
@@ -77,8 +85,8 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [
-            'css-loader',
-            "postcss-loader",
+            { loader: 'css-loader', options: { sourceMap: true } },
+            { loader: 'postcss-loader', options: { sourceMap: true } },
           ]
         }),
         include: [

@@ -4,17 +4,17 @@ let htmlWebpackPlugin = require('html-webpack-plugin');
 let fs = require('fs');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let cssnano = require('cssnano');
+let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   devtool: "source-map",
   entry: {
     app: ['./src/index'],
-    vendors: ['vue', 'vue-router', 'vuex', 'babel-polyfill'],
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: "js/[name].min.js",
-    chunkFilename: 'js/[name].min.js',
+    filename: "js/[name].js",
+    chunkFilename: 'js/[name].chunk.js',
     publicPath: "/"
   },
   module: {
@@ -110,12 +110,18 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },
   plugins: [
+    // new BundleAnalyzerPlugin(),//打包模块结构分析
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       __DEV__: false,
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendors'],
+      name: 'vendor',
+      minChunks: ({ resource }) => (
+        resource &&
+        resource.indexOf('node_modules') >= 0 &&
+        resource.match(/\.js$/)
+      ),
     }),//提取公共模块
     new htmlWebpackPlugin({
       template: path.join(__dirname, './src/index.ejs'),

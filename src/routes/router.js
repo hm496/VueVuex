@@ -5,9 +5,9 @@ import Home from "../views/Home.vue"; //首页
 import Frame from "../layouts/Frame.vue"; //主体框架
 import Login from "../views/Login.vue"; //登录页面
 
-const Detail = () => import('../views/Detail.vue');
-const User = () => import('../views/User.vue');
-const NotFoundComponent = () => import('../views/NotFoundComponent.vue');
+const Detail = () => import(/* webpackChunkName: "Detail" */ '../views/Detail.vue');
+const User = () => import(/* webpackChunkName: "User" */ '../views/User.vue');
+const NotFound = () => import(/* webpackChunkName: "NotFound" */ '../views/NotFound.vue');
 
 const routes = [
   {
@@ -43,12 +43,12 @@ const routes = [
   {
     name: 'invalid',
     path: '/invalid',
-    component: NotFoundComponent
+    component: NotFound
   },
   {
     name: '404',
     path: '*',
-    component: NotFoundComponent
+    component: NotFound
   }
 ];
 

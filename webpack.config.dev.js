@@ -110,6 +110,8 @@ module.exports = {
   resolve: {
     alias: {
       'vue': path.join(__dirname, 'node_modules', 'vue'),
+      'src': path.resolve('src'),
+      'assets': path.resolve('src/assets'),
     },
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },

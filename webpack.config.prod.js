@@ -7,7 +7,7 @@ let cssnano = require('cssnano');
 let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  devtool: "source-map",
+  devtool: "#source-map",
   entry: {
     app: ['./src/index'],
   },
@@ -114,6 +114,8 @@ module.exports = {
   resolve: {
     alias: {
       'vue': path.join(__dirname, 'node_modules', 'vue'),
+      'src': path.resolve('src'),
+      'assets': path.resolve('src/assets'),
     },
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },
@@ -165,6 +167,7 @@ module.exports = {
         unused: true,
         dead_code: true,
       },
+      sourceMap: true
     }),
   ],
 };

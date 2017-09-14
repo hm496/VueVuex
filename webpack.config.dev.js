@@ -8,13 +8,12 @@ module.exports = {
     app: [
       'webpack-hot-middleware/client',
       './src/index',
-    ],
-    vendors: ['vue', 'vue-router', 'vuex', 'babel-polyfill'],
+    ]
   },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: "js/[name].min.js",
-    chunkFilename: 'js/[name].min.js',
+    chunkFilename: 'js/[name].chunk.js',
     publicPath: "/"
   },
   module: {
@@ -106,10 +105,6 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendors',
-      filename: "vendor.js"
-    }),//提取公共模块
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       __DEV__: true,

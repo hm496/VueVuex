@@ -115,7 +115,6 @@ module.exports = {
       filename: 'index.html',
       hash: true,
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),//错误不打断程序
     new webpack.HotModuleReplacementPlugin(),//模块热替换
   ],

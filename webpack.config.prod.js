@@ -129,7 +129,6 @@ module.exports = {
       filename: 'index.html',
       hash: true,
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new ExtractTextPlugin({
       filename: (getPath) => {
         return getPath('css/[name].css');

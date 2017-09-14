@@ -1,6 +1,7 @@
 let path = require('path');
 let webpack = require('webpack');
 let htmlWebpackPlugin = require('html-webpack-plugin');
+let FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
   devtool: "cheap-module-eval-source-map",
@@ -117,6 +118,7 @@ module.exports = {
     }),
     new webpack.NoEmitOnErrorsPlugin(),//错误不打断程序
     new webpack.HotModuleReplacementPlugin(),//模块热替换
+    new FriendlyErrorsPlugin(),
   ],
 };
 

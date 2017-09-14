@@ -30,7 +30,8 @@ let webpackDevOptions = {
   stats: {
     colors: true,
     chunks: false
-  }
+  },
+  quiet: true
 };
 
 //路由

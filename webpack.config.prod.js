@@ -124,6 +124,7 @@ module.exports = {
       'vue': path.join(__dirname, 'node_modules', 'vue'),
       'src': path.resolve('src'),
       'assets': path.resolve('src/assets'),
+      'utils': path.resolve('src/utils'),
     },
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },
@@ -165,18 +166,18 @@ module.exports = {
       },
       allChunks: true,
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      output: {
-        comments: false,  //remove all comments
-      },
-      compress: {
-        warnings: false,
-        unused: true,
-        dead_code: true,
-      },
-      sourceMap: true
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   minimize: true,
+    //   output: {
+    //     comments: false,  //remove all comments
+    //   },
+    //   compress: {
+    //     warnings: false,
+    //     unused: true,
+    //     dead_code: true,
+    //   },
+    //   sourceMap: true
+    // }),
   ],
 };
 

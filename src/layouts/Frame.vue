@@ -20,7 +20,7 @@
   import Menubar from './Menubar.vue';
   import Contabs from './Contabs.vue';
 
-  module.exports = {
+  export default {
     name: 'Frame',
     componentName: 'Frame',
     components: {

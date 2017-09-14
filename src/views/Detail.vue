@@ -7,7 +7,7 @@
 
   }
 
-  module.exports = {
+  export default {
     name: '',
     componentName: '',
     props: {},

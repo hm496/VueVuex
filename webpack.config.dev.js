@@ -112,6 +112,7 @@ module.exports = {
       'vue': path.join(__dirname, 'node_modules', 'vue'),
       'src': path.resolve('src'),
       'assets': path.resolve('src/assets'),
+      'utils': path.resolve('src/utils'),
     },
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },

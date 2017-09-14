@@ -62,7 +62,9 @@
 </template>
 
 <script>
-  module.exports = {
+  import { qs } from 'utils/tools.js';
+
+  export default {
     name: '',
     componentName: '',
     props: {},
@@ -84,8 +86,8 @@
     },
     methods: {
       onSubmit: function () {
-        console.log(JSON.stringify(this.login));
-//        console.log("onSubmit");
+        console.log(qs(this.login));
+
         axios.post('/logon.do', "loginOp=login&crypted=0&username=ynsgat&password=123456&verifycode=1634");
       },
       newCode: function () {

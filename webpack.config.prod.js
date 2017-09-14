@@ -13,8 +13,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: "js/[name].js",
-    chunkFilename: 'js/[name].chunk.js',
+    filename: "js/[name].[chunkhash:7].js",
+    chunkFilename: 'js/[name].[id].[chunkhash:7].js',
     publicPath: "/"
   },
   module: {
@@ -86,19 +86,27 @@ module.exports = {
         ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+        test: /\.(eot|svg|ttf|woff|woff2)(\?.*)?$/i,
         loader: 'url-loader',
         options: {
-          limit: 8192,
-          name: 'font/[name]_[hash:base64:5].[ext]',
+          limit: 10000,
+          name: 'font/[name].[hash:7].[ext]',
         }
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ico)(\?v=\d+\.\d+\.\d+)?$/i,
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i,
         loader: 'url-loader',
         options: {
-          limit: 8192,
-          name: 'img/[name]_[hash:base64:5].[ext]',
+          limit: 10000,
+          name: 'media/[name].[hash:7].[ext]',
+        }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|ico)(\?.*)?$/i,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'img/[name].[hash:7].[ext]',
         }
       },
     ],
@@ -115,23 +123,35 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       __DEV__: false,
     }),
+    // keep module.id stable when vender modules does not change
+    new webpack.HashedModuleIdsPlugin(),
+    // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: ({ resource }) => (
         resource &&
         resource.indexOf('node_modules') >= 0 &&
-        resource.match(/\.js$/)
+        /\.js$/.test(resource)
       ),
     }),//提取公共模块
     new htmlWebpackPlugin({
+      filename: 'index.html',
       template: path.join(__dirname, './src/index.ejs'),
       inject: 'body', // Inject all scripts into the body
-      filename: 'index.html',
-      hash: true,
+      // hash: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
     }),
     new ExtractTextPlugin({
       filename: (getPath) => {
-        return getPath('css/[name].css');
+        return getPath('css/[name].[contenthash:7].css');
       },
       allChunks: true,
     }),

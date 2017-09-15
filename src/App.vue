@@ -7,20 +7,29 @@
     <!--<router-link to="/user/456">Go to user</router-link>-->
     <!--</p>-->
     <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view></router-view>
+    <router-view v-if="loaded"></router-view>
+    <h2 v-else>loading等待页面</h2>
   </div>
 </template>
 
 <script>
-  module.exports = {
+  import Store from 'store/Store.js';
+
+  export default {
     name: '',
     componentName: '',
     props: {},
-    data: function () {
+    data: function() {
       return {}
     },
+    created() {
+    },
     methods: {},
-    computed: {},
+    computed: {
+      loaded() {
+        return Store.state.loaded
+      }
+    },
     watch: {},
   };
 </script>

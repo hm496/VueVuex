@@ -7,7 +7,7 @@
     name: '',
     componentName: '',
     props: {},
-    data: function () {
+    data: function() {
       return {}
     },
     methods: {},

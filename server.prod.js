@@ -13,7 +13,7 @@ const isMock = !!process.env.MOCK_SERVER;
 if (isMock) {
   console.log('Using mock server...');
 }
-proxy.on('error', function (e) {
+proxy.on('error', function(e) {
   console.log(e);
   console.log('@@//代理服务器错误!');
 });
@@ -21,6 +21,7 @@ proxy.on('error', function (e) {
 app.use(compression());
 
 app.use(express.static('build'));
+app.use(express.static('mock'));
 
 //api接口代理
 app.all(/^\/zhba\/(.*)/, (req, res) => {

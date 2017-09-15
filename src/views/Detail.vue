@@ -3,15 +3,11 @@
 </template>
 
 <script>
-  function* foo() {
-
-  }
-
   export default {
     name: '',
     componentName: '',
     props: {},
-    data: function () {
+    data: function() {
       return {}
     },
     methods: {},

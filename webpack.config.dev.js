@@ -113,6 +113,8 @@ module.exports = {
       'src': path.resolve('src'),
       'assets': path.resolve('src/assets'),
       'utils': path.resolve('src/utils'),
+      'store': path.resolve('src/store'),
+      'api': path.resolve('src/api'),
     },
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },

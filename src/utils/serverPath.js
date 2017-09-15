@@ -1,4 +1,4 @@
-const prefix = "zhba";
+const prefix = "api";
 
 module.exports = {
   prefix

@@ -42,7 +42,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         include: [
           path.resolve(__dirname, 'src'),
@@ -82,14 +82,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)(\?.*)?$/i,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'font/[name].[hash:7].[ext]',
-        }
-      },
-      {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i,
         loader: 'url-loader',
         options: {
@@ -98,12 +90,16 @@ module.exports = {
         }
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ico)(\?.*)?$/i,
+        test: /\.(jpe?g|png|gif|ico)(\?.*)?$/i,
         loader: 'url-loader',
         options: {
           limit: 10000,
           name: 'img/[name].[hash:7].[ext]',
         }
+      },
+      {
+        test: /\.(svg|eot|ttf|woff|woff2)(\?.*)?$/i,
+        loader: 'file-loader',
       },
     ],
   },

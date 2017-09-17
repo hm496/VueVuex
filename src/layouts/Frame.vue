@@ -16,9 +16,9 @@
 </template>
 
 <script>
-  import Navbar from './Navbar.vue';
-  import Menubar from './Menubar.vue';
-  import Contabs from './Contabs.vue';
+  import Navbar from '../components/Frame/Navbar.vue';
+  import Menubar from '../components/Frame/Menubar.vue';
+  import Contabs from '../components/Frame/Contabs.vue';
 
   export default {
     name: 'Frame',
@@ -29,7 +29,7 @@
       Contabs
     },
     props: {},
-    data: function () {
+    data: function() {
       return {}
     },
     methods: {},
@@ -41,6 +41,7 @@
 <style lang="scss" module>
   .navbar {
     height: 60px;
+    overflow: hidden;
   }
 
   .menubar {

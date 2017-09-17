@@ -2,3 +2,33 @@ html, body {
     width: 100%;
     height: 100%;
 }
+
+/*ul清除样式*/
+.ulclear {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*左浮动*/
+.floatLeft {
+    float: left;
+}
+
+/*左浮动*/
+.floatRight {
+    float: right;
+}
+
+/*清除浮动*/
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix::after {
+    content: " ";
+    display: block;
+    clear: both;
+    width: 0;
+    height: 0;
+}

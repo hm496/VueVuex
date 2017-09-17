@@ -41,7 +41,7 @@ export default function(router) {
             Store.commit(RootTypes.CHANGE_LOGIN_STATUS, false);
             router.push("/login");
           }
-        }, 2000);
+        }, 500);
       }
 
       //先判断本地vuex中登录状态

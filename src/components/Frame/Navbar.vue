@@ -1,15 +1,23 @@
 <template>
   <div :class="$style.navroot">
-    导航栏
+    <Navheader></Navheader>
+    <NavbarContainer></NavbarContainer>
   </div>
 </template>
 
 <script>
+  import Navheader from './Navheader.vue';
+  import NavbarContainer from './NavbarContainer.vue';
+
   export default {
     name: '',
     componentName: '',
+    components: {
+      Navheader,
+      NavbarContainer,
+    },
     props: {},
-    data: function () {
+    data: function() {
       return {}
     },
     methods: {},

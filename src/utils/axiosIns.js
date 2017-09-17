@@ -2,28 +2,16 @@ import axios from 'axios';
 import serverPath from './serverPath.js';
 import axiosMidware from './axiosMidware.js';
 
+axios.defaults.withCredentials = true;
 const instance = axios.create({
   baseURL: `/${serverPath.prefix}/`,
 });
 
-function proxyAxios(...args) {
-  return instance(...args).then(function(res) {
-    return axiosMidware(res);
-  });
-}
+// 添加响应拦截
+instance.interceptors.response.use(function(response) {
+  return axiosMidware(response);
+}, function(error) {
+  return Promise.reject(error);
+});
 
-proxyAxios.post = function(...args) {
-  return instance.post(...args).then(function(res) {
-    return axiosMidware(res);
-  });
-}
-
-proxyAxios.get = function(...args) {
-  return instance.get(...args).then(function(res) {
-    return axiosMidware(res);
-  });
-}
-
-
-window.axios = proxyAxios;
-export default proxyAxios;
+export default instance;

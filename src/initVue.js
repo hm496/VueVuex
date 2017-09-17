@@ -1,6 +1,6 @@
 //vue核心,Plugin
 import Vue from 'vue';
-import './initVuePlugin';
+import './initVuePlugin.js';
 //vue路由
 import router from "./routes/router.js";
 //vue入口组件

@@ -1,3 +1,5 @@
+//router-hook
+import routerHook from './routerHook.js';
 //vue-router
 import VueRouter from 'vue-router';
 
@@ -17,22 +19,26 @@ const routes = [
     children: [
       {
         path: '',
-        component: Home
+        component: Home,
+        meta: { requiresAuth: true }//需要登录
       },
       {
         name: 'home',
         path: '/home',
-        component: Home
+        component: Home,
+        meta: { requiresAuth: true }//需要登录
       },
       {
         name: 'detail',
         path: '/detail',
-        component: Detail
+        component: Detail,
+        meta: { requiresAuth: true }//需要登录
       },
       {
         name: 'user',
         path: '/user/:id',
-        component: User
+        component: User,
+        meta: { requiresAuth: true }//需要登录
       }
     ]
   },
@@ -58,21 +64,6 @@ const router = new VueRouter({
   routes, // （缩写）相当于 routes: routes
 });
 
-/*
-*
-{
-  path: 'home',
-  component: Home
-},
-{
-  path: 'detail',
-  component: Detail
-},
-{
-  name: 'user',
-  path: '/user/:id',
-  component: User
-},
-* */
+routerHook(router);
 
 export default router;

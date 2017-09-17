@@ -19,8 +19,7 @@ const routes = [
     children: [
       {
         path: '',
-        component: Home,
-        meta: { requiresAuth: true }//需要登录
+        redirect: { name: 'login' }//重定向 到登录页面
       },
       {
         name: 'home',

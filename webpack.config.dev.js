@@ -32,9 +32,9 @@ module.exports = {
             camelCase: true
           },
           loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader', // <style lang="scss">
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax', // <style lang="sass">
-            css: 'vue-style-loader!css-loader',
+            scss: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?sourceMap', // <style lang="scss">
+            sass: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap!sass-loader?indentedSyntax&sourceMap', // <style lang="sass">
+            css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap',
           }
         },
         include: [
@@ -51,14 +51,16 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
-          "style-loader",
+          "style-loader?sourceMap",
           {
             loader: 'css-loader',
             options: {
               modules: true,
+              sourceMap: true,
               localIdentName: '[name]__[local]-[hash:base64:5]',
             }
           },
+          "postcss-loader?sourceMap",
           {
             loader: "sass-loader",
             options: {
@@ -74,8 +76,9 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
-          'css-loader',
+          "style-loader?sourceMap",
+          'css-loader?sourceMap',
+          "postcss-loader?sourceMap",
         ],
         include: [
           path.resolve(__dirname, 'src'),

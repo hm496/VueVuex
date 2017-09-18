@@ -7,8 +7,12 @@ module.exports = {
       sourcemap: true,
       autoprefixer: {
         add: true,
-        remove: true,
-        browsers: ['last 2 version', 'Chrome 31', 'Safari 8'],
+        remove: false,
+        browsers: [
+          "> 1%",
+          "last 2 versions",
+          "ie >= 9",
+        ],
       },
       discardComments: {
         removeAll: true,

@@ -16,9 +16,13 @@ const isMock = !!process.env.MOCK_SERVER;
 if (isMock) {
   console.log('Using mock server...');
 }
-proxy.on('error', function(e) {
-  console.log(e);
+proxy.on('error', function (err, req, res) {
+  console.log(err);
   console.log('@@//代理服务器错误!');
+  res.writeHead(500, {
+    'Content-Type': 'text/plain'
+  });
+  res.end('Something went wrong. And we are reporting a custom error message.');
 });
 
 let webpackDevOptions = {
@@ -61,7 +65,7 @@ app.all(apiRegExp, (req, res) => {
   }
 });
 
-app.get('/', function(req, res, next) {
+app.get('/', function (req, res, next) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 

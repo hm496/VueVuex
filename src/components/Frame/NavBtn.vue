@@ -1,5 +1,7 @@
 <template>
-
+  <router-link to="/detail" class="aaa">
+    <div>12313</div>
+  </router-link>
 </template>
 
 <script>
@@ -7,7 +9,7 @@
     name: '',
     componentName: '',
     props: {},
-    data: function() {
+    data: function () {
       return {}
     },
     created() {

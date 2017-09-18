@@ -6,6 +6,7 @@ let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let cssnano = require('cssnano');
 // let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+const port = 3000;
 module.exports = {
   devtool: "#source-map",
   entry: {

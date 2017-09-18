@@ -5,7 +5,7 @@
         <li class="floatLeft">
           <a :class="[$style.hamburger_a,$style.hamburger_hover]" href="javascript:;">
             <i :class="$style.hamburger"
-              class="icon hamburger hamburger-arrow-left">
+               class="icon hamburger hamburger-arrow-left">
               <span :class="$style.hamburger_bar"></span>
             </i>
           </a>
@@ -19,11 +19,13 @@
 </template>
 
 <script>
+  import NavBtn from './NavBtn.vue';
+
   export default {
     name: '',
     componentName: '',
     props: {},
-    data: function() {
+    data: function () {
       return {}
     },
     created() {

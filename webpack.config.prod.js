@@ -168,18 +168,20 @@ module.exports = {
       },
       allChunks: true,
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   minimize: true,
-    //   output: {
-    //     comments: false,  //remove all comments
-    //   },
-    //   compress: {
-    //     warnings: false,
-    //     unused: true,
-    //     dead_code: true,
-    //   },
-    //   sourceMap: true
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      output: {
+        preamble: `/* ${new Date().toLocaleString()} */`,
+        comments: false,  //remove all comments
+      },
+      compress: {
+        warnings: false,
+        unused: true,
+        dead_code: true,
+        drop_console: false,//设置为true时删除console.log
+      },
+      sourceMap: true
+    }),
   ],
 };
 

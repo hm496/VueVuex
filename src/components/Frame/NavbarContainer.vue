@@ -13,7 +13,19 @@
           </a>
         </li>
         <li class="floatLeft">
-          <i class="icon wb-library"></i>
+          <NavBtn fontClass="wb-library" to="/home">主 页</NavBtn>
+        </li>
+        <li class="floatLeft">
+          <NavBtn fontClass="wb-table" to="/detail">详情页面</NavBtn>
+        </li>
+        <li class="floatLeft">
+          <NavBtn fontClass="wb-desktop" to="/login">登录页面</NavBtn>
+        </li>
+        <li class="floatLeft">
+          <NavBtn fontClass="wb-order" to="/login">表单示例</NavBtn>
+        </li>
+        <li class="floatLeft">
+          <NavBtn fontClass="wb-pie-chart" to="/login">统计图表</NavBtn>
         </li>
       </ul>
     </div>
@@ -63,6 +75,7 @@
     height: 60px;
     width: 50px;
     position: relative;
+    transition: all 0.25s;
   }
 
   .hamburger_hover:hover {

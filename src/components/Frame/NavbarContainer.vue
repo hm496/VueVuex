@@ -4,9 +4,11 @@
       <ul class="navbar-toolbar ulclear">
         <li class="floatLeft">
           <a :class="[$style.hamburger_a,$style.hamburger_hover]" href="javascript:;">
-            <i :class="$style.hamburger"
+            <i :class="$style.hamburger_i"
                class="icon hamburger hamburger-arrow-left">
-              <span :class="$style.hamburger_bar"></span>
+              <span :class="$style.hamburger_bar1"></span>
+              <span :class="$style.hamburger_bar2"></span>
+              <span :class="$style.hamburger_bar3"></span>
             </i>
           </a>
         </li>
@@ -42,49 +44,48 @@
     padding-right: 12px;
   }
 
-  .hamburger_bar {
+  .hamburger_i {
     display: inline-block;
+    vertical-align: top;
     width: 20px;
     height: 2px;
-    background-color: #fff;
-    margin: 4px 0;
-    border-radius: 4px;
-  }
-
-  .hamburger {
-    font-size: 20px;
-    margin-top: 4px;
-    display: inline-block;
     transform: rotate(180deg);
-  }
-
-  .hamburger::after, .hamburger::before {
-    content: " ";
-    display: block;
-    width: 12px;
-    height: 2px;
-    margin: 0;
-    background: #fff;
-    border-radius: 1px;
-    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out, -o-transform .2s ease-in-out;
-  }
-
-  .hamburger::after {
-    transform: translate3d(.45em, -.1em, 0) rotate(-45deg);
-  }
-
-  .hamburger::before {
-    transform: translate3d(.45em, .1em, 0) rotate(45deg);
+    position: absolute;
+    top: 30px;
+    left: 15px;
   }
 
   .hamburger_a {
     display: block;
-    padding: 19px 15px;
     height: 60px;
-    box-sizing: border-box;
+    width: 50px;
+    position: relative;
   }
 
   .hamburger_hover:hover {
     background-color: rgba(0, 0, 0, .1);
+  }
+
+  .hamburger_bar1, .hamburger_bar2, .hamburger_bar3 {
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    left: 0;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out, -o-transform .2s ease-in-out;
+  }
+
+  .hamburger_bar1 {
+    transform: rotate(-40deg) translateX(8px) translateY(4px);
+    top: 6px;
+    width: 12px;
+  }
+
+  .hamburger_bar3 {
+    transform: rotate(40deg) translateX(8px) translateY(-4px);
+    top: -6px;
+    width: 12px;
   }
 </style>

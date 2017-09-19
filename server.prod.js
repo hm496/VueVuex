@@ -8,6 +8,8 @@ const app = express();
 const compression = require('compression')
 const httpProxy = require('http-proxy');
 
+const ProxyConfig = require('./ProxyConfig');
+
 const proxy = httpProxy.createProxyServer({});
 const isMock = !!process.env.MOCK_SERVER;
 if (isMock) {
@@ -32,11 +34,11 @@ app.all(/^\/zhba\/(.*)/, (req, res) => {
   if (isMock) {
     //Mock服务器
     console.log('Mock服务器');
-    proxy.web(req, res, { target: 'http://localhost:3011' });
+    proxy.web(req, res, { target: ProxyConfig.mockServer });
   } else {
     //proxy服务器
     console.log('proxy服务器');
-    proxy.web(req, res, { target: 'http://localhost:5000' });
+    proxy.web(req, res, { target: ProxyConfig.proxyServer });
   }
 });
 

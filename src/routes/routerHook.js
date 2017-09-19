@@ -2,7 +2,7 @@ import Store from 'store/Store.js';
 import { types as RootTypes } from 'store/rootVuex.js';
 import { getLoginStatus } from '../api/LoginAPI';
 
-export default function(router) {
+export default function (router) {
   //全局导航钩子
   router.beforeEach((to, from, next) => {
     //隐藏
@@ -19,7 +19,7 @@ export default function(router) {
         console.log("显示loading页");
         //2,去后台请求判断权限
         //模拟请求
-        setTimeout(function() {
+        setTimeout(function () {
           //通过后台返回数据,判断登录状态
           // getLoginStatus().then(function(res) {
           //   //if(未登录)
@@ -39,9 +39,9 @@ export default function(router) {
             next();
           } else {
             Store.commit(RootTypes.CHANGE_LOGIN_STATUS, false);
-            router.push("/login");
+            next("/login");
           }
-        }, 500);
+        }, 2500);
       }
 
       //先判断本地vuex中登录状态

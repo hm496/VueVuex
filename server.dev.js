@@ -11,6 +11,8 @@ const compiler = webpack(config);
 const compression = require('compression')
 const httpProxy = require('http-proxy');
 
+const ProxyConfig = require('./ProxyConfig');
+
 const proxy = httpProxy.createProxyServer({});
 const isMock = !!process.env.MOCK_SERVER;
 if (isMock) {
@@ -54,14 +56,14 @@ const serverPath = require('./src/utils/serverPath');
 const apiRegExp = new RegExp(`^\/${serverPath.prefix}\/(.*)`, 'i');
 
 app.all(apiRegExp, (req, res) => {
-  if (true) {
+  if (isMock) {
     //Mock服务器
     console.log('Mock服务器');
-    proxy.web(req, res, { target: 'http://localhost:8800' });
+    proxy.web(req, res, { target: ProxyConfig.mockServer });
   } else {
     //proxy服务器
     console.log('proxy服务器');
-    proxy.web(req, res, { target: 'http://172.16.0.25:5000/' });
+    proxy.web(req, res, { target: ProxyConfig.proxyServer });
   }
 });
 

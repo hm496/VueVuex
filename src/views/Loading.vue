@@ -1,7 +1,10 @@
 <template>
   <div :class="{loaded : !isLoading}" v-if="show">
     <div id="loader-wrapper">
-      <div id="loader"></div>
+      <div id="loader" ref="loader">
+        <div class="loader_before" ref="loader_before"></div>
+        <div class="loader_after" ref="loader_after"></div>
+      </div>
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
       <div class="load_title">正在努力加载中<br></div>
@@ -10,28 +13,74 @@
 </template>
 
 <script>
+
+  //period 毫秒周期
+  function getDeg(startTime, nowTime, period) {
+    let disTime = (nowTime - startTime) % period;
+    return disTime / period * 360;
+  }
+
   export default {
     name: '',
     componentName: '',
     props: ["isLoading"],
-    data: function() {
+    data: function () {
       return {
         show: false,
+        animationTimer: null,
       }
     },
     created() {
       this.show = this.isLoading;
     },
-    methods: {},
+    mounted() {
+      if (navigator.appName === "Microsoft Internet Explorer" && /MSIE 9\.0/i.test(navigator.appVersion)) {
+        //IE 9.0
+        clearInterval(this.animationTimer);
+        this.animationTimer = this.animationStart();
+      }
+    },
+    beforeDestroy: function () {
+      console.log("animationTimeranimationTimeranimationTimeranimationTimeranimationTimeranimationTimer");
+      clearInterval(this.animationTimer);
+    },
+    methods: {
+      animationStart: function () {
+        //兼容IE9
+        let startTime = Date.now();
+        return setInterval(() => {
+          if (this.show === false) {
+            clearInterval(this.animationTimer);
+            return;
+          }
+          let nowTime = Date.now();
+          const loader_deg = getDeg(startTime, nowTime, 2000);//loader
+          const loader_before_deg = getDeg(startTime, nowTime, 3000);//loader_before
+          const loader_after_deg = getDeg(startTime, nowTime, 1500);//loader_after
+          this.$refs.loader.style["-ms-transform"] = `rotate(${loader_deg}deg)`;
+          this.$refs.loader_before.style["-ms-transform"] = `rotate(${loader_before_deg}deg)`;
+          this.$refs.loader_after.style["-ms-transform"] = `rotate(${loader_after_deg}deg)`;
+
+          this.$refs.loader.style["transform"] = `rotate(${loader_deg}deg)`;
+          this.$refs.loader_before.style["transform"] = `rotate(${loader_before_deg}deg)`;
+          this.$refs.loader_after.style["transform"] = `rotate(${loader_after_deg}deg)`;
+        }, 16.6667);
+      }
+    },
     computed: {},
     watch: {
-      isLoading: function(val1, val2) {
+      isLoading: function (val1, val2) {
         if (val1 === false) {
           setTimeout(() => {
             //清除Loading界面DOM
             this.show = false;
           }, 1000);
         } else {
+          if (navigator.appName === "Microsoft Internet Explorer" && /MSIE 9\.0/i.test(navigator.appVersion)) {
+            //IE 9.0
+            clearInterval(this.animationTimer);
+            this.animationTimer = this.animationStart();
+          }
           this.show = true;
         }
       }
@@ -69,8 +118,7 @@
     z-index: 1001;
   }
 
-  #loader:before {
-    content: "";
+  #loader > .loader_before {
     position: absolute;
     top: 5px;
     left: 5px;
@@ -87,8 +135,7 @@
     animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
   }
 
-  #loader:after {
-    content: "";
+  #loader > .loader_after {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -97,6 +144,7 @@
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #FF9600;
+    -ms-transform: rotate(50deg);
     /* COLOR 3 */
     -moz-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
     -o-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */

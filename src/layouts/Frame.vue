@@ -66,6 +66,7 @@
   }
 
   .container {
+    overflow: auto;
     margin-left: 220px;
     margin-top: 40px;
     height: calc(100% - 100px);

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="$style.app_root">
     <!--<p>-->
     <!--<router-link to="/home">Go to home</router-link>-->
     <!--<router-link to="/detail">Go to detail</router-link>-->
@@ -52,4 +52,8 @@
 </script>
 
 <style lang="scss" module>
+  .app_root {
+    height: 100%;
+    overflow: auto;
+  }
 </style>

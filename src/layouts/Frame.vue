@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="$style.frame_root">
     <div :class="$style.navbar">
       <Navbar></Navbar>
     </div>
@@ -39,6 +39,10 @@
 </script>
 
 <style lang="scss" module>
+  .frame_root {
+    height: 100%;
+  }
+
   .navbar {
     height: 60px;
     overflow: hidden;

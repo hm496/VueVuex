@@ -4,8 +4,8 @@
       :class="$style.navbar_brand"
       class="clearfix site-gridmenu-toggle" data-toggle="gridmenu">
       <img :class="$style.navbar_brand_logo"
-           src="~assets/img/logo-white.svg"
-           title="user">
+        src="~assets/img/logo-white.svg"
+        title="user">
       <!--<img :class="$style.navbar_brand_logo" src="~assets/img/logo-white-min.svg"-->
       <!--title="user">-->
     </div>
@@ -17,7 +17,7 @@
     name: '',
     componentName: '',
     props: {},
-    data: function () {
+    data: function() {
       return {}
     },
     created() {
@@ -46,6 +46,7 @@
   .navbar_brand_logo {
     margin-top: -5px;
     height: 32px;
+    width: 117px;
   }
 
 </style>

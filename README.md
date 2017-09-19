@@ -1,12 +1,11 @@
 # One Vue App
 
-Do something with Vue&Vuex.
-
 ## Run
+
 ### `npm install` 
 
-### `npm start` 
+### `npm run start` 
 
 ## Bulid
 
-### `npm build` 
+### `npm run build` 

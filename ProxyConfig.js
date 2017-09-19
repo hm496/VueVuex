@@ -1,4 +1,4 @@
 module.exports = {
-  proxyServer: "http://172.16.0.25:5000",
+  proxyServer: "http://localhost:8080",
   mockServer: "http://localhost:8800",
 };

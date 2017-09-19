@@ -3,7 +3,6 @@ let webpack = require('webpack');
 let htmlWebpackPlugin = require('html-webpack-plugin');
 let FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
-const port = 3000;
 module.exports = {
   devtool: "cheap-module-eval-source-map",
   entry: {

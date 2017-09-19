@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="floatLeft">
-
+          <i class="icon wb-library"></i>
         </li>
       </ul>
     </div>
@@ -26,6 +26,9 @@
   export default {
     name: '',
     componentName: '',
+    components: {
+      NavBtn
+    },
     props: {},
     data: function () {
       return {}

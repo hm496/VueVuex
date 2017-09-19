@@ -5,7 +5,7 @@ let fs = require('fs');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let cssnano = require('cssnano');
 // let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
+const ProxyConfig = require('./ProxyConfig');
 const prePath = "release/";
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
     path: path.resolve(__dirname, '../main'),
     filename: `${prePath}js/[name].[chunkhash:7].js`,
     chunkFilename: `${prePath}js/[name].[id].[chunkhash:7].js`,
-    publicPath: "/"
+    publicPath: ProxyConfig.publicPath || "/"
   },
   module: {
     rules: [

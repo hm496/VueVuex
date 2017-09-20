@@ -1,20 +1,20 @@
 <template>
   <div :class="$style.navroot">
-    <Navheader></Navheader>
-    <NavbarContainer></NavbarContainer>
+    <NavLeft></NavLeft>
+    <NavRight></NavRight>
   </div>
 </template>
 
 <script>
-  import Navheader from './Navheader.vue';
-  import NavbarContainer from './NavbarContainer.vue';
+  import NavLeft from './NavLeft.vue';
+  import NavRight from './NavRight.vue';
 
   export default {
     name: '',
     componentName: '',
     components: {
-      Navheader,
-      NavbarContainer,
+      NavLeft,
+      NavRight,
     },
     props: {},
     data: function() {

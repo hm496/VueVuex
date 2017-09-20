@@ -18,7 +18,7 @@ const isMock = !!process.env.MOCK_SERVER;
 if (isMock) {
   console.log('Using mock server...');
 }
-proxy.on('error', function (err, req, res) {
+proxy.on('error', function(err, req, res) {
   console.log(err);
   console.log('@@//代理服务器错误!');
   res.writeHead(500, {
@@ -58,7 +58,7 @@ const apiRegExp = new RegExp(`^\/${serverPath.prefix}\/(.*)`, 'i');
 app.all(apiRegExp, (req, res) => {
   if (isMock) {
     //Mock服务器
-    console.log('Mock服务器');
+    console.log("请求接口:", req.url);
     proxy.web(req, res, { target: ProxyConfig.mockServer });
   } else {
     //proxy服务器
@@ -67,7 +67,7 @@ app.all(apiRegExp, (req, res) => {
   }
 });
 
-app.get('/', function (req, res, next) {
+app.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 

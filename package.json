@@ -11,7 +11,8 @@
     "build": "npm run clean&& npm run build:webpack",
     "openBrowser": "node openBrowser.js",
     "prodServer": "cross-env NODE_ENV=production node server.prod.js",
-    "release": "cross-env NODE_ENV=production webpack --config webpack.config.release.js"
+    "release": "cross-env NODE_ENV=production webpack --config webpack.config.release.js",
+    "mockServer": "cross-env NODE_ENV=development MOCK_SERVER=true node server.dev.js"
   },
   "author": "",
   "license": "ISC",

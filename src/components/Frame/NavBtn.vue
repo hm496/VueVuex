@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="to" exact :active-class="$style.btn_a_active" :class="$style.btn_a">
+  <router-link :to="to" :exact="exact" :active-class="$style.btn_a_active" :class="$style.btn_a">
     <i :class="fontClass"></i>
     <span><slot></slot></span>
   </router-link>
@@ -17,9 +17,13 @@
       fontClass: {
         type: String,
         default: ""
+      },
+      exact: {
+        type: Boolean,
+        default: true
       }
     },
-    data: function () {
+    data: function() {
       return {}
     },
     created() {

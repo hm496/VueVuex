@@ -3,7 +3,7 @@ import { types as RootTypes } from '../store/rootVuex.js';
 import { getLoginInfo } from '../api/LoginAPI';
 import { USER_OUTLINE } from '../utils/responseCode.js';
 
-export default function (router) {
+export default function(router) {
   //全局导航钩子
   router.beforeEach((to, from, next) => {
       //隐藏
@@ -14,13 +14,14 @@ export default function (router) {
         if (isLogin) {
           next();
         } else {
-          //1,显示loading页
+          next();
+
+          /*//1,显示loading页
           Store.commit(RootTypes.CHANGE_LOADING_MASK, true);//显示loading
           console.log("显示loading页");
           //2,去后台请求判断权限
-          //模拟请求
-          setTimeout(function () {
-            getLoginInfo().then(function (res) {
+          setTimeout(function() {
+            getLoginInfo().then(function(res) {
               Store.commit(RootTypes.CHANGE_LOADING_MASK, false);//隐藏loading
               console.log("隐藏loading页");
               if (res.header.code === USER_OUTLINE) {
@@ -35,12 +36,12 @@ export default function (router) {
                 Store.commit(RootTypes.SET_LOGIN_INFO, res.body.info);
                 next();
               }
-            }).catch(function (err) {
+            }).catch(function(err) {
               next("/login");
               Store.commit(RootTypes.CHANGE_LOADING_MASK, false);//隐藏loading
               console.log("隐藏loading页");
             });
-          }, 300);
+          }, 300);*/
         }
 
         // setTimeout(function () {

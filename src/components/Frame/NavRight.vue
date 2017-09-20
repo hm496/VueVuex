@@ -1,32 +1,31 @@
 <template>
   <div :class="$style.container">
     <div>
-      <ul class="navbar-toolbar ulclear">
+      <ul class="navbar-toolbar ulclear clearfix">
         <li class="floatLeft">
           <a :class="[$style.hamburger_a,$style.hamburger_hover]" href="javascript:;">
             <i :class="$style.hamburger_i"
-               class="icon hamburger hamburger-arrow-left">
+              class="icon hamburger hamburger-arrow-left">
               <span :class="$style.hamburger_bar1"></span>
               <span :class="$style.hamburger_bar2"></span>
               <span :class="$style.hamburger_bar3"></span>
             </i>
           </a>
         </li>
-        <li class="floatLeft">
-          <NavBtn fontClass="wb-library" to="/home">主 页</NavBtn>
+        <li class="floatLeft" :class="$style.btn_wrapper">
+          <ul class="ulclear clearfix overhidden">
+            <li class="floatLeft">
+              <NavBtn fontClass="wb-library" :exact="false" to="/source">资源管理</NavBtn>
+            </li>
+            <li class="floatLeft">
+              <NavBtn fontClass="wb-order" :exact="false" to="/identity">识别结果</NavBtn>
+            </li>
+            <li class="floatLeft">
+              <NavBtn fontClass="wb-desktop" :exact="false" to="/system">系统管理</NavBtn>
+            </li>
+          </ul>
         </li>
-        <li class="floatLeft">
-          <NavBtn fontClass="wb-table" to="/detail">详情页面</NavBtn>
-        </li>
-        <li class="floatLeft">
-          <NavBtn fontClass="wb-desktop" to="/login">登录页面</NavBtn>
-        </li>
-        <li class="floatLeft">
-          <NavBtn fontClass="wb-order" to="/login">表单示例</NavBtn>
-        </li>
-        <li class="floatLeft">
-          <NavBtn fontClass="wb-pie-chart" to="/login">统计图表</NavBtn>
-        </li>
+
       </ul>
     </div>
   </div>
@@ -42,7 +41,7 @@
       NavBtn
     },
     props: {},
-    data: function () {
+    data: function() {
       return {}
     },
     created() {
@@ -54,6 +53,10 @@
 </script>
 
 <style lang="scss" module>
+  .btn_wrapper {
+    width: calc(100% - 50px);
+  }
+
   .container {
     margin-left: 220px;
     padding-right: 12px;

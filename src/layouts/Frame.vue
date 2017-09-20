@@ -4,7 +4,7 @@
       <Navbar></Navbar>
     </div>
     <div :class="$style.menubar">
-      <Menubar></Menubar>
+      <SideMenu></SideMenu>
     </div>
     <div :class="$style.contabs">
       <Contabs></Contabs>
@@ -17,7 +17,7 @@
 
 <script>
   import Navbar from '../components/Frame/Navbar.vue';
-  import Menubar from '../components/Frame/Menubar.vue';
+  import SideMenu from '../components/Frame/SideMenu.vue';
   import Contabs from '../components/Frame/Contabs.vue';
 
   export default {
@@ -25,7 +25,7 @@
     componentName: 'Frame',
     components: {
       Navbar,
-      Menubar,
+      SideMenu,
       Contabs
     },
     props: {},

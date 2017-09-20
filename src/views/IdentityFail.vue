@@ -1,8 +1,5 @@
 <template>
-  <div :class="$style.menuroot">
-    侧边<br/>
-    菜单栏
-  </div>
+  <div>未识别</div>
 </template>
 
 <script>
@@ -10,8 +7,10 @@
     name: '',
     componentName: '',
     props: {},
-    data: function () {
+    data: function() {
       return {}
+    },
+    created() {
     },
     methods: {},
     computed: {},
@@ -20,8 +19,5 @@
 </script>
 
 <style lang="scss" module>
-  .menuroot {
-    height: 100%;
-    background-color: #263238;
-  }
+
 </style>

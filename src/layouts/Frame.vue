@@ -44,8 +44,10 @@
   }
 
   .navbar {
+    position: relative;
+    z-index: 1;
     height: 60px;
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
 
   .menubar {

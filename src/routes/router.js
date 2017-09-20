@@ -12,7 +12,7 @@ const User = () => import(/* webpackChunkName: "User" */ '../views/User.vue');
 const NotFound = () => import(/* webpackChunkName: "NotFound" */ '../views/NotFound.vue');
 const Invalid = () => import(/* webpackChunkName: "Invalid" */ '../views/Invalid.vue');
 
-//子路由wrapper
+//工具:子路由wrapper
 import ChildWrapper from "../layouts/ChildWrapper.vue";
 //资源管理
 import Device from "../views/Device.vue"; //设备

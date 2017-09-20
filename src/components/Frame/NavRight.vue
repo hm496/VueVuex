@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.container">
     <div>
-      <ul class="navbar-toolbar ulclear clearfix">
+      <ul class="ulclear clearfix floatLeft" :class="$style.navbar_toolbar">
         <li class="floatLeft">
           <a :class="[$style.hamburger_a,$style.hamburger_hover]" href="javascript:;">
             <i :class="$style.hamburger_i"
@@ -27,18 +27,44 @@
         </li>
 
       </ul>
+      <ul :class="$style.icon_ul" class="ulclear clearfix floatRight">
+        <li class="floatLeft">
+          <IconBtn icon="wb-bell" :showtip="true">通知</IconBtn>
+        </li>
+        <li class="floatLeft">
+          <IconBtn icon="wb-layout" :showtip="true">布局</IconBtn>
+        </li>
+        <li class="floatLeft">
+          <IconBtn icon="wb-mobile" :showtip="true">手机</IconBtn>
+        </li>
+        <li class="floatLeft">
+          <IconBtn icon="wb-download" :showtip="true">下载</IconBtn>
+        </li>
+        <li class="floatLeft">
+          <IconBtn icon="wb-user" :showtip="true">在线咨询</IconBtn>
+        </li>
+        <li class="floatLeft">
+          <IconBtn icon="wb-expand" :showtip="true">通知</IconBtn>
+        </li>
+        <li class="floatLeft">
+          <IconBtn icon="fa fa-sign-out">通知</IconBtn>
+        </li>
+        
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
   import NavBtn from './NavBtn.vue';
+  import IconBtn from './IconBtn.vue';
 
   export default {
     name: '',
     componentName: '',
     components: {
-      NavBtn
+      NavBtn,
+      IconBtn,
     },
     props: {},
     data: function() {
@@ -53,8 +79,17 @@
 </script>
 
 <style lang="scss" module>
+  .icon_ul {
+    display: inline-block;
+    white-space: nowrap;
+  }
+
   .btn_wrapper {
     width: calc(100% - 50px);
+  }
+
+  .navbar_toolbar {
+    width: calc(100% - 360px);
   }
 
   .container {

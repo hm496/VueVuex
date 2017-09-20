@@ -1,5 +1,6 @@
 //登录成功
 export const LOGIN_SUCCESS = 101010;
+//账号,密码,验证码等错误
 export const LOGIN_FAIL = 101014;
 /*201：用户已离线
 202：账号已停用

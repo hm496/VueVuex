@@ -31,7 +31,7 @@
                 <span class="icons iconcode"></span>
                 <input type="text" placeholder="验证码" v-model="login.verifycode" name="verifycode" maxlength="4"
                        class="code" id="code">
-                <img :src="verifycode" alt="验证码" @mousedown="newCode" title="点击刷新">
+                <img alt="验证码" @mousedown="newCode" title="点击刷新">
                 <em class="nerror error_code">
                   <div class="ferrorhead">请输入验证码</div>
                 </em>
@@ -88,14 +88,16 @@
     },
     methods: {
       onSubmit: function () {
+        if (this.login.username === "" || this.login.password === "") {
+          return;
+        }
         Store.dispatch("login", this.login);
-
-//        axiosIns.post('/logon.do', "loginOp=login&crypted=0&username=ynsgat&password=123456&verifycode=1634");
+        
       },
       newCode: function () {
-        const t = new Date().getTime()
-        let newImg = `/zhba/logon.do?p=verifycode&${t}`;
-        this.verifycode = newImg;
+//        const t = new Date().getTime()
+//        let newImg = `/zhba/logon.do?p=verifycode&${t}`;
+//        this.verifycode = newImg;
       }
     },
     computed: {},

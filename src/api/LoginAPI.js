@@ -1,9 +1,9 @@
-import axiosIns from 'utils/axiosIns.js';
-import { qs } from 'utils/tools.js';
+import axiosIns from '../utils/axiosIns.js';
+import { qs } from '../utils/tools.js';
 
 //获取登录状态
-export function getLoginStatus(params) {
-  return axiosIns.get("/getloginstatus.json");
+export function getLoginInfo(params) {
+  return axiosIns.get("/logoninfo");
 }
 
 //登录接口

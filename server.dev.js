@@ -62,7 +62,7 @@ app.all(apiRegExp, (req, res) => {
     proxy.web(req, res, { target: ProxyConfig.mockServer });
   } else {
     //proxy服务器
-    console.log('proxy服务器');
+    console.log("请求接口:", req.url);
     proxy.web(req, res, { target: ProxyConfig.proxyServer });
   }
 });

@@ -37,6 +37,8 @@ app.all(/^\/zhba\/(.*)/, (req, res) => {
     proxy.web(req, res, { target: ProxyConfig.mockServer });
   } else {
     //proxy服务器
+    console.log(req);
+    console.log(res);
     console.log('proxy服务器');
     proxy.web(req, res, { target: ProxyConfig.proxyServer });
   }

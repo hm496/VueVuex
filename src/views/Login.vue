@@ -64,6 +64,7 @@
 <script>
   import { qs } from 'utils/tools.js';
   import axiosIns from 'utils/axiosIns.js';
+  import Store from 'store/Store.js';
 
   export default {
     name: '',
@@ -87,9 +88,9 @@
     },
     methods: {
       onSubmit: function () {
-        console.log(qs(this.login));
+        Store.dispatch("login", this.login);
 
-        axiosIns.post('/logon.do', "loginOp=login&crypted=0&username=ynsgat&password=123456&verifycode=1634");
+//        axiosIns.post('/logon.do', "loginOp=login&crypted=0&username=ynsgat&password=123456&verifycode=1634");
       },
       newCode: function () {
         const t = new Date().getTime()

@@ -8,10 +8,11 @@ const instance = axios.create({
 });
 
 // 添加响应拦截
-instance.interceptors.response.use(function(response) {
+instance.interceptors.response.use(function (response) {
   return axiosMidware(response);
-}, function(error) {
+}, function (error) {
   return Promise.reject(error);
 });
 
+window.axios = instance;
 export default instance;

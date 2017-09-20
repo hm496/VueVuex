@@ -17,15 +17,16 @@ const getters = {};
 // actions
 const actions = {
   getLoginStatus({ commit }) {
-    getLoginStatus().then(function(res) {
+    getLoginStatus().then(function (res) {
       console.log(res, "-----------");
       console.log("getLoginStatus");
     });
   },
   login({ commit }, data) {
-    loginApi(data).then(function(res) {
-      console.log(res, "-----------");
-      console.log("getLoginStatus");
+    loginApi(data).then(function (res) {
+      console.log("login请求-----------");
+      console.log(res);
+      console.log("login请求-----------");
     });
   },
   loginOut({ commit }, data) {

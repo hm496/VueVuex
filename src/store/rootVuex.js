@@ -47,12 +47,10 @@ const actions = {
     //调用登出接口并复位相关vuex状态,清空登录数据
     //跳转到登录页面
     window.sessionStorage.removeItem("loginInfo");
-    
-    logout().then(function (res) {
-      commit(CHANGE_LOGIN_STATUS, false);
-      commit(SET_LOGIN_INFO, null);
-      router.push("/login");
-    });
+    router.push("/login");
+    commit(CHANGE_LOGIN_STATUS, false);
+    commit(SET_LOGIN_INFO, null);
+    logout();//退出接口
   },
 }
 // mutations

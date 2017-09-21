@@ -125,12 +125,12 @@
   }
 
   .menu_item:hover > a {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(255, 255, 255, .9);
     background-color: rgba(255, 255, 255, .02);
   }
 
   .menu_item_active {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(255, 255, 255, .9);
     background-color: rgba(255, 255, 255, .02);
   }
 

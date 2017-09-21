@@ -56,13 +56,13 @@ const serverPath = require('./src/utils/serverPath');
 const apiRegExp = new RegExp(`^\/${serverPath.prefix}\/(.*)`, 'i');
 
 app.all(apiRegExp, (req, res) => {
+  console.log("请求接口:", req.url);
+
   if (isMock) {
     //Mock服务器
-    console.log("请求接口:", req.url);
     proxy.web(req, res, { target: ProxyConfig.mockServer });
   } else {
     //proxy服务器
-    console.log("请求接口:", req.url);
     proxy.web(req, res, { target: ProxyConfig.proxyServer });
   }
 });

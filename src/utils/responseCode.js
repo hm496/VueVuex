@@ -13,4 +13,5 @@ export const LOGIN_OUTDATE = 101015;
 207：账号已过期*/
 export const USER_OUTLINE = 201;
 export const USER_BLOCKUP = 202;
+export const USER_NOTFOUND = 204;
 export const USER_OUTDATE = 207;

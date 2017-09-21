@@ -1,6 +1,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    font-family: "Microsoft Yahei", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
 }
 
 /*ul清除样式*/
@@ -8,6 +9,12 @@ html, body {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+/*内联块*/
+.inline-block {
+    display: inline-block;
+    vertical-align: top;
 }
 
 /*左浮动*/
@@ -42,3 +49,90 @@ html, body {
 .heightFull {
     height: 100%;
 }
+
+/*垂直对齐方式*/
+.verticalAlign {
+    height: 100%;
+    font-size: 0;
+}
+
+.verticalAlign::before {
+    content: " ";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    width: 1px;
+}
+
+.verticalAlignMiddle {
+    vertical-align: middle;
+}
+
+.verticalAlignBottom {
+    vertical-align: bottom;
+}
+
+.verticalAlignBottom, .verticalAlignMiddle {
+    display: inline-block;
+    max-width: 100%;
+    font-size: 14px;
+}
+
+/*垂直对齐方式END*/
+
+/*响应式样式*/
+.visible-lg, .visible-md, .visible-sm, .visible-xs {
+    display: none !important;
+}
+
+/*显示*/
+@media (max-width: 1200px) {
+    .visible-lg {
+        display: block !important;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .visible-md {
+        display: block !important;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .visible-sm {
+        display: block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .visible-xs {
+        display: block !important;
+    }
+}
+
+/*隐藏*/
+@media (max-width: 1200px) {
+    .hidden-lg {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .hidden-md {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .hidden-sm {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hidden-xs {
+        display: none !important;
+    }
+}
+
+/*响应式样式END*/

@@ -1,5 +1,6 @@
+import Vue from 'vue';
 //响应码
-import { LOGIN_SUCCESS } from '../utils/responseCode.js';
+import { LOGIN_SUCCESS, LOGIN_NOTFOUND, LOGIN_FAILPWD, LOGIN_OUTDATE } from '../utils/responseCode.js';
 //接口
 import { login as loginApi, logout } from '../api/LoginAPI';
 //路由,跳转页面
@@ -28,7 +29,7 @@ const actions = {
     });
   },
   login({ commit }, data) {
-    loginApi(data).then(function (res) {
+    return loginApi(data).then(function (res) {
       if (res.header && res.header.code === LOGIN_SUCCESS) {
         //修改vuex登录状态
         commit(CHANGE_LOGIN_STATUS, true);
@@ -37,6 +38,7 @@ const actions = {
         //跳转home
         router.push("/home");
       }
+      return res;
     });
   },
   loginOut({ commit }, data) {

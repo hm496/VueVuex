@@ -61,7 +61,7 @@ html, body {
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-    width: 1px;
+    width: 0px;
 }
 
 .verticalAlignMiddle {
@@ -79,6 +79,11 @@ html, body {
 }
 
 /*垂直对齐方式END*/
+
+/*水平居中*/
+.textCenter {
+    text-align: center;
+}
 
 /*响应式样式*/
 .visible-lg, .visible-md, .visible-sm, .visible-xs {

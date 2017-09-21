@@ -37,9 +37,6 @@ module.exports = {
             css: 'vue-style-loader?sourceMap!css-loader?sourceMap!postcss-loader?sourceMap',
           }
         },
-        include: [
-          path.resolve(__dirname, 'src'),
-        ]
       },
       { test: /iview.src.*?js$/, loader: 'babel-loader' },
       {

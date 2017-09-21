@@ -51,9 +51,6 @@ module.exports = {
             })
           }
         },
-        include: [
-          path.resolve(__dirname, 'src'),
-        ]
       },
       { test: /iview.src.*?js$/, loader: 'babel-loader' },
       {

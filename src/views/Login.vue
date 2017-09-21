@@ -9,21 +9,26 @@
             <p :class="$style.login_p" class="hidden-xs">Admui 在线演示系统</p>
             <form action="" :class="$style.login_form">
 
-              <div :class="$style.form_group">
-                <FormInput v-model="login.username"/>
-              </div>
-              <div :class="$style.form_group">
-                <FormInput v-model="login.password"/>
-              </div>
-              <div :class="$style.form_group">
-                <FormInput v-model="login.verifycode"/>
+              <!--<div :class="$style.form_group">-->
+              <!--<FormInput v-model="login.username"/>-->
+              <!--</div>-->
+              <!--<div :class="$style.form_group">-->
+              <!--<FormInput v-model="login.password"/>-->
+              <!--</div>-->
+              <!--<div :class="$style.form_group">-->
+              <!--<FormInput v-model="login.verifycode"/>-->
+              <!--</div>-->
+              <div>
+                <_Input v-model="login.username">
+                  <span slot="prepend">http://</span>
+                  <span slot="append">.com</span>
+                </_Input>
               </div>
 
             </form>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </template>
@@ -33,12 +38,14 @@
   import axiosIns from 'utils/axiosIns.js';
   import Store from 'store/Store.js';
   import FormInput from '../components/Login/FormInput.vue';
+  import _Input from '_iview/input';
 
   export default {
     name: '',
     componentName: '',
     components: {
       FormInput,
+      _Input,
     },
     props: {},
     data: function () {

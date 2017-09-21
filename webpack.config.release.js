@@ -91,9 +91,6 @@ module.exports = {
             { loader: 'postcss-loader', options: { sourceMap: true } },
           ]
         }),
-        include: [
-          path.resolve(__dirname, 'src'),
-        ],
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/i,
@@ -129,6 +126,7 @@ module.exports = {
       'utils': path.resolve('src/utils'),
       'store': path.resolve('src/store'),
       'api': path.resolve('src/api'),
+      '_iview': path.join(__dirname, 'node_modules', 'iview/src/components'),
     },
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },

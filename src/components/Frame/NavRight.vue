@@ -26,7 +26,7 @@
           </ul>
         </li>
       </ul>
-      
+
       <ul :class="$style.icon_ul" class="ulclear clearfix floatRight">
         <li class="floatLeft">
           <IconBtn icon="wb-bell" :showtip="true">通知</IconBtn>

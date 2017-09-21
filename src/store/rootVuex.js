@@ -34,6 +34,8 @@ const actions = {
         //修改vuex登录状态
         commit(CHANGE_LOGIN_STATUS, true);
         console.log(res.body.info);
+        //把登录用户信息存到sessionStorage中
+        window.sessionStorage.setItem("loginInfo", JSON.stringify(res.body.info));
         commit(SET_LOGIN_INFO, res.body.info);
         //跳转home
         router.push("/home");
@@ -44,6 +46,8 @@ const actions = {
   loginOut({ commit }, data) {
     //调用登出接口并复位相关vuex状态,清空登录数据
     //跳转到登录页面
+    window.sessionStorage.removeItem("loginInfo");
+    
     logout().then(function (res) {
       commit(CHANGE_LOGIN_STATUS, false);
       commit(SET_LOGIN_INFO, null);

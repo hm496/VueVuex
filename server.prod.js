@@ -29,8 +29,11 @@ app.use(compression());
 app.use(express.static('build'));
 app.use(express.static('mock'));
 
+//获取api地址前缀
+const serverPath = require('./src/utils/serverPath');
 //api接口代理
-app.all(/^\/zhba\/(.*)/, (req, res) => {
+const apiRegExp = new RegExp(`^\/${serverPath.prefix}\/(.*)`, 'i');
+app.all(apiRegExp, (req, res) => {
   if (isMock) {
     //Mock服务器
     console.log('Mock服务器');

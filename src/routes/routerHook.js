@@ -1,6 +1,5 @@
 import Store from '../store/Store.js';
 import { types as RootTypes } from '../store/rootVuex.js';
-import { getLoginInfo } from '../api/LoginAPI';
 import { USER_OUTLINE } from '../utils/responseCode.js';
 
 export default function (router) {
@@ -21,27 +20,47 @@ export default function (router) {
           console.log("显示loading页");
           //2,去后台请求判断权限
           setTimeout(function () {
-            getLoginInfo().then(function (res) {
-              Store.commit(RootTypes.CHANGE_LOADING_MASK, false);//隐藏loading
-              console.log("隐藏loading页");
-              if (res.header.code === USER_OUTLINE) {
-                //未登录
-                Store.commit(RootTypes.CHANGE_LOGIN_STATUS, false);
-                next("/login");
-              } else {
-                //已经登录
-                //设置登录状态
-                Store.commit(RootTypes.CHANGE_LOGIN_STATUS, true);
+            const loginInfo = window.sessionStorage.getItem("loginInfo");
+            if (loginInfo) {
+              //已经登录
+              //设置登录状态
+              Store.commit(RootTypes.CHANGE_LOGIN_STATUS, true);
+              try {
+                const infoObj = JSON.parse(loginInfo);
                 //设置登录用户信息
-                Store.commit(RootTypes.SET_LOGIN_INFO, res.body.info);
-                next();
+                Store.commit(RootTypes.SET_LOGIN_INFO, infoObj);
+              } catch (e) {
               }
-            }).catch(function (err) {
+              next();
+            } else {
+              //未登录
+              Store.commit(RootTypes.CHANGE_LOGIN_STATUS, false);
               next("/login");
-              Store.commit(RootTypes.CHANGE_LOADING_MASK, false);//隐藏loading
-              console.log("隐藏loading页");
-            });
-          }, 300);
+            }
+            Store.commit(RootTypes.CHANGE_LOADING_MASK, false);//隐藏loading
+            console.log("隐藏loading页");
+
+            // getLoginInfo().then(function (res) {
+            //   Store.commit(RootTypes.CHANGE_LOADING_MASK, false);//隐藏loading
+            //   console.log("隐藏loading页");
+            //   if (res.header.code === USER_OUTLINE) {
+            //     //未登录
+            //     Store.commit(RootTypes.CHANGE_LOGIN_STATUS, false);
+            //     next("/login");
+            //   } else {
+            //     //已经登录
+            //     //设置登录状态
+            //     Store.commit(RootTypes.CHANGE_LOGIN_STATUS, true);
+            //     //设置登录用户信息
+            //     Store.commit(RootTypes.SET_LOGIN_INFO, res.body.info);
+            //     next();
+            //   }
+            // }).catch(function (err) {
+            //   next("/login");
+            //   Store.commit(RootTypes.CHANGE_LOADING_MASK, false);//隐藏loading
+            //   console.log("隐藏loading页");
+            // });
+          }, 500);
         }
 
         // setTimeout(function () {

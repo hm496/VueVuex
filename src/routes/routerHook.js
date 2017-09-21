@@ -14,7 +14,7 @@ export default function (router) {
         if (isLogin) {
           next();
         } else {
-          next();
+          // next();
 
           //1,显示loading页
           Store.commit(RootTypes.CHANGE_LOADING_MASK, true);//显示loading

@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <div :class="$style.root" @click="emitCLick">
     <a :class="[$style.icon_a,icon]" class="icon" href="javascript:;" role="button">
       <span :class="$style.sr_only" v-if="showtip"><slot></slot><em :class="$style.arrow"></em></span>
     </a>
@@ -12,12 +12,16 @@
     name: '',
     componentName: '',
     props: ["showtip", "icon"],
-    data: function() {
+    data: function () {
       return {}
     },
     created() {
     },
-    methods: {},
+    methods: {
+      emitCLick: function () {
+        this.$emit("click")
+      }
+    },
     computed: {},
     watch: {},
   };

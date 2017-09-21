@@ -5,7 +5,7 @@
         <li class="floatLeft">
           <a :class="[$style.hamburger_a,$style.hamburger_hover]" href="javascript:;">
             <i :class="$style.hamburger_i"
-              class="icon hamburger hamburger-arrow-left">
+               class="icon hamburger hamburger-arrow-left">
               <span :class="$style.hamburger_bar1"></span>
               <span :class="$style.hamburger_bar2"></span>
               <span :class="$style.hamburger_bar3"></span>
@@ -47,9 +47,9 @@
           <IconBtn icon="wb-expand" :showtip="true">通知</IconBtn>
         </li>
         <li class="floatLeft">
-          <IconBtn icon="fa fa-sign-out">通知</IconBtn>
+          <IconBtn icon="fa fa-sign-out" @click="signout">通知</IconBtn>
         </li>
-        
+
       </ul>
     </div>
   </div>
@@ -58,6 +58,7 @@
 <script>
   import NavBtn from './NavBtn.vue';
   import IconBtn from './IconBtn.vue';
+  import Store from "store/Store.js";
 
   export default {
     name: '',
@@ -67,12 +68,16 @@
       IconBtn,
     },
     props: {},
-    data: function() {
+    data: function () {
       return {}
     },
     created() {
     },
-    methods: {},
+    methods: {
+      signout: function () {
+        Store.dispatch("loginOut");
+      }
+    },
     computed: {},
     watch: {},
   };

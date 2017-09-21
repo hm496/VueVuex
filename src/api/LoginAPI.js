@@ -10,3 +10,8 @@ export function getLoginInfo(params) {
 export function login(params) {
   return axiosIns.post("/logon", qs(params));
 }
+
+//登出接口
+export function logout(params) {
+  return axiosIns.get("/logout");
+}

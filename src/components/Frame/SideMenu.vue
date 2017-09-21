@@ -1,16 +1,16 @@
 <template>
   <div :class="$style.menuroot">
-    <div v-if="this.$route.fullPath.indexOf('source') > -1">
+    <div v-if="this.menuType === 1">
       <MenuList :listArr="listArr[0]"></MenuList>
       <!--设备,摄像头,人员库,分类库-->
     </div>
 
-    <div v-if="this.$route.fullPath.indexOf('identity') > -1">
+    <div v-if="this.menuType === 2">
       <MenuList :listArr="listArr[1]"></MenuList>
       <!--识别成功,未识别成功-->
     </div>
 
-    <div v-if="this.$route.fullPath.indexOf('system') > -1">
+    <div v-if="this.menuType === 3">
       <MenuList :listArr="listArr[2]"></MenuList>
       <!--用户管理,日志信息,账户信息-->
     </div>
@@ -27,11 +27,13 @@
       MenuList
     },
     props: {},
-    data: function() {
+    data: function () {
       return {
+        lastMenuType: 1,
         listArr: [
           [{
             title: "资源管理",
+            prefix: "/source",
             arr: [
               {
                 name: "device",
@@ -61,6 +63,7 @@
           }],
           [{
             title: "识别结果",
+            prefix: "/identity",
             arr: [
               {
                 name: "identitysuc",
@@ -78,6 +81,7 @@
           }],
           [{
             title: "系统信息",
+            prefix: "/system",
             arr: [
               {
                 name: "usermanage",
@@ -95,6 +99,7 @@
           },
             {
               title: "我的账户",
+              prefix: "/system",
               arr: [
                 {
                   name: "accountinfo",
@@ -107,10 +112,26 @@
         ]
       }
     },
-    created: function() {
+    created: function () {
     },
     methods: {},
-    computed: {},
+    computed: {
+      menuType: function () {
+        if (this.$route.fullPath.indexOf('source') > -1) {
+          this.lastMenuType = 1;
+          return 1;
+        }
+        if (this.$route.fullPath.indexOf('identity') > -1) {
+          this.lastMenuType = 2;
+          return 2;
+        }
+        if (this.$route.fullPath.indexOf('system') > -1) {
+          this.lastMenuType = 3;
+          return 3;
+        }
+        return this.lastMenuType;
+      }
+    },
     watch: {},
   };
 </script>

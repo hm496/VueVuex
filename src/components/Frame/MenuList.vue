@@ -5,8 +5,8 @@
       <template v-for="item in listObj.arr">
         <li :class="$style.menu_item">
           <a href="javascript:;"
-            @click="turnPage(item)"
-            :class="{ [$style.menu_item_a]: true,[$style.menu_item_active]: item.active }">
+             @click="turnPage(item)"
+             :class="{ [$style.menu_item_a]: true,[$style.menu_item_active]: item.active }">
             <i class="fa" aria-hidden="true" :class="[$style.menu_item_icon,item.icon]"></i>
             <span :class="$style.menu_item_span">{{item.text}}</span><span class="site-menu-arrow"></span>
           </a>
@@ -26,7 +26,7 @@
         required: true
       }
     },
-    data: function() {
+    data: function () {
       return {
         routeName: ""
       }
@@ -39,12 +39,12 @@
       this.highlight();
     },
     methods: {
-      turnPage: function(item) {
+      turnPage: function (item) {
         if (item.to) {
           this.$router.push(item.to);
         }
       },
-      highlight: function() {
+      highlight: function () {
         let count = 0;
         for (let i = 0; i < this.listArr.length; i++) {
           if (this.listArr[i].arr.length) {
@@ -59,14 +59,14 @@
             });
           }
         }
-        if (count === 0) {
+        if (count === 0 && this.$route.fullPath.indexOf(this.listArr[0].prefix) > 0) {
           this.listArr[0].arr[0].active = true;
         }
       },
     },
     computed: {},
     watch: {
-      $route: function() {
+      $route: function () {
         this.routeName = this.$route.name;
         this.highlight();
       }

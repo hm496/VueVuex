@@ -1,7 +1,7 @@
 //响应码
 import { LOGIN_SUCCESS } from '../utils/responseCode.js';
 //接口
-import { login as loginApi } from '../api/LoginAPI';
+import { login as loginApi, logout } from '../api/LoginAPI';
 //路由,跳转页面
 import router from '../routes/router.js';
 
@@ -42,9 +42,11 @@ const actions = {
   loginOut({ commit }, data) {
     //调用登出接口并复位相关vuex状态,清空登录数据
     //跳转到登录页面
-    commit(CHANGE_LOGIN_STATUS, false);
-    commit(SET_LOGIN_INFO, null);
-    router.push("/login");
+    logout().then(function (res) {
+      commit(CHANGE_LOGIN_STATUS, false);
+      commit(SET_LOGIN_INFO, null);
+      router.push("/login");
+    });
   },
 }
 // mutations

@@ -41,6 +41,7 @@ module.exports = {
           path.resolve(__dirname, 'src'),
         ]
       },
+      { test: /iview.src.*?js$/, loader: 'babel-loader' },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',

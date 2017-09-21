@@ -47,7 +47,7 @@
           <IconBtn icon="wb-expand" :showtip="true">通知</IconBtn>
         </li>
         <li class="floatLeft">
-          <IconBtn icon="fa fa-sign-out" @click="signout">通知</IconBtn>
+          <IconBtn :icon="`${$style.fa} fa-sign-out`" @click="signout">登出</IconBtn>
         </li>
 
       </ul>
@@ -84,6 +84,11 @@
 </script>
 
 <style lang="scss" module>
+  a.fa {
+    font: normal normal normal 16px FontAwesome;
+    line-height: 22px;
+  }
+
   .icon_ul {
     display: inline-block;
     white-space: nowrap;

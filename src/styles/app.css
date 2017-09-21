@@ -33,6 +33,12 @@ html, body {
     height: 0;
 }
 
+/*隐藏*/
 .overhidden {
     overflow: hidden;
+}
+
+/*高度100%*/
+.heightFull {
+    height: 100%;
 }

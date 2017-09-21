@@ -72,7 +72,7 @@
     props: {},
     data: function () {
       return {
-        verifycode: `/zhba/logon.do?p=verifycode&${new Date().getTime()}`,
+        verifycode: `logon.do?p=verifycode&${new Date().getTime()}`,
         login: {
           loginOp: 'login',
           crypted: '0',
@@ -92,7 +92,6 @@
           return;
         }
         Store.dispatch("login", this.login);
-        
       },
       newCode: function () {
 //        const t = new Date().getTime()

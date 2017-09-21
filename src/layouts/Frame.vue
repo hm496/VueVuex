@@ -29,7 +29,7 @@
       Contabs
     },
     props: {},
-    data: function() {
+    data: function () {
       return {}
     },
     methods: {},

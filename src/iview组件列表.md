@@ -114,7 +114,7 @@ import {
 //Select 选择器
 import {
     Select as iSelect,
-    Option as iSelect,
+    Option as iOption,
     OptionGroup as iOptionGroup,
 } from 'iviewSrc/select';
 

@@ -107,15 +107,15 @@ import iUpload from 'iviewSrc/upload';
 
 //Grid 栅格
 import {
-    iRow,
-    iCol
+    Row as iRow,
+    Col as iCol,
 } from 'iviewSrc/grid';
 
 //Select 选择器
 import {
-    iSelect,
-    Option,
-    OptionGroup
+    Select as iSelect,
+    Option as iSelect,
+    OptionGroup as iOptionGroup,
 } from 'iviewSrc/select';
 
 ```

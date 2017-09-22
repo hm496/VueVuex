@@ -1,7 +1,7 @@
 <template>
   <div class="heightFull" :class="[$style.page_login, $style.page_dark]">
     <div class="heightFull" :class="$style.page_content">
-      <div>
+      <div class="heightFull">
         <div class=" page-brand-info verticalAlign animation-slide-left hidden-xs">
           <div class="page-brand verticalAlignMiddle">
             <div class="brand">

@@ -11,7 +11,7 @@
     </div>
     <div :class="$style.container" ref="container">
       <div :class="$style.containerdiv">
-        <router-view></router-view>
+        <router-view v-if="delay"></router-view>
       </div>
     </div>
   </div>
@@ -40,9 +40,14 @@
     },
     props: {},
     data: function () {
-      return {}
+      return {
+        delay: false,
+      }
     },
     mounted() {
+      setTimeout(() => {
+        this.delay = true;
+      }, 800);
       this.resizeEvent();
       window.addEventListener("resize", this.resizeEvent);
     },
@@ -59,7 +64,7 @@
     computed: {},
     watch: {},
     beforeDestroy: function () {
-      window.removeEventListener(this.resizeEvent);
+      window.removeEventListener("resize", this.resizeEvent);
     }
   };
 </script>
@@ -111,7 +116,7 @@
     padding-top: $padTop;
     padding-bottom: $padBottom;
     background-color: #f1f4f5;
-
+    min-width: 800px;
     overflow: auto;
     margin-left: 220px;
     margin-top: 40px;

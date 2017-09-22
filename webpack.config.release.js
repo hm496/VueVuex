@@ -108,9 +108,8 @@ module.exports = {
       },
       {
         test: /\.(svg|eot|ttf|woff|woff2)(\?.*)?$/i,
-        loader: 'url-loader',
+        loader: 'file-loader',
         options: {
-          limit: 10000,
           name: `${prePath}font/[name].[hash:7].[ext]`,
         }
       },

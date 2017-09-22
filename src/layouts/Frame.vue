@@ -116,7 +116,6 @@
     padding-top: $padTop;
     padding-bottom: $padBottom;
     background-color: #f1f4f5;
-    min-width: 800px;
     overflow: auto;
     margin-left: 220px;
     margin-top: 40px;
@@ -124,6 +123,7 @@
   }
 
   .containerdiv {
+    min-width: 800px;
     min-height: 100%;
     width: 100%;
     background-color: #fff;

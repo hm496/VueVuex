@@ -141,3 +141,41 @@ html, body {
 }
 
 /*响应式样式END*/
+
+/*字体相关*/
+.fontSize12 {
+    font-size: 12px;
+}
+
+.fontSize14 {
+    font-size: 14px;
+}
+
+.fontSize16 {
+    font-size: 16px;
+}
+
+.fontSize18 {
+    font-size: 18px;
+}
+
+/*字体相关END*/
+
+/*修改iview样式*/
+/*table组件*/
+.ivu-table-row-highlight td,
+.ivu-table-stripe .ivu-table-body tr.ivu-table-row-highlight:nth-child(2n) td,
+.ivu-table-stripe .ivu-table-fixed-body tr.ivu-table-row-highlight:nth-child(2n) td,
+tr.ivu-table-row-highlight.ivu-table-row-hover td {
+    background-color: #62a8ea;
+    color: #fff;
+}
+
+.ivu-table td,
+.ivu-table th {
+    height: 34px;
+}
+
+/*table组件END*/
+/*修改iview样式END*/
+

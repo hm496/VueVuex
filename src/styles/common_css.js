@@ -1,3 +1,4 @@
 import './normalize.css';
-import './app.css';
 import '../assets/font/fontcss';
+//app.css放最下边
+import './app.css';

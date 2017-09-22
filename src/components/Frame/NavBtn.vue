@@ -23,7 +23,7 @@
         default: true
       }
     },
-    data: function() {
+    data: function () {
       return {}
     },
     created() {
@@ -47,6 +47,7 @@
     line-height: 22px;
     font-family: "Helvetica Neue", Helvetica, Tahoma, Arial, "Microsoft Yahei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
     transition: all 0.25s;
+    white-space: nowrap;
   }
 
   .btn_a:hover {

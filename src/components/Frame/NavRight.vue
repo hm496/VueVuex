@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="floatLeft" :class="$style.btn_wrapper">
-          <ul class="ulclear clearfix overhidden">
+          <ul class="ulclear clearfix overhidden heightFull">
             <li class="floatLeft">
               <NavBtn fontClass="wb-library" :exact="false" to="/source">资源管理</NavBtn>
             </li>
@@ -27,7 +27,7 @@
         </li>
       </ul>
 
-      <ul :class="$style.icon_ul" class="ulclear clearfix floatRight">
+      <ul :class="$style.icon_ul" class="ulclear clearfix floatRight heightFull">
         <li class="floatLeft">
           <IconBtn icon="wb-bell" :showtip="true">通知</IconBtn>
         </li>

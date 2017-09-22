@@ -1,135 +1,121 @@
 ```javascript
 //iview组件库列表,按需加载,用到哪个组件复制对应的"import"过去
-//图钉 affix
-import iAffix from './components/affix';
-import Alert from './components/alert';
-import AutoComplete from './components/auto-complete';
-import Avatar from './components/avatar';
-import BackTop from './components/back-top';
-import Badge from './components/badge';
-import Breadcrumb from './components/breadcrumb';
-import Button from './components/button';
-import Card from './components/card';
-import Carousel from './components/carousel';
-import Cascader from './components/cascader';
-import Checkbox from './components/checkbox';
-import Circle from './components/circle';
-import Collapse from './components/collapse';
-import ColorPicker from './components/color-picker';
-import DatePicker from './components/date-picker';
-import Dropdown from './components/dropdown';
-import Form from './components/form';
-import Icon from './components/icon';
-import Input from './components/input';
-import InputNumber from './components/input-number';
-import LoadingBar from './components/loading-bar';
-import Menu from './components/menu';
-import Message from './components/message';
-import Modal from './components/modal';
-import Notice from './components/notice';
-import Page from './components/page';
-import Poptip from './components/poptip';
-import Progress from './components/progress';
-import Radio from './components/radio';
-import Rate from './components/rate';
-import Slider from './components/slider';
-import Spin from './components/spin';
-import Steps from './components/steps';
-import Switch from './components/switch';
-import Table from './components/table';
-import Tabs from './components/tabs';
-import Tag from './components/tag';
-import Timeline from './components/timeline';
-import TimePicker from './components/time-picker';
-import Tooltip from './components/tooltip';
-import Transfer from './components/transfer';
-import Tree from './components/tree';
-import Upload from './components/upload';
+
+//Affix 图钉
+import iAffix from 'iviewSrc/affix';
+//Alert 警告提示
+import iAlert from 'iviewSrc/alert';
+//AutoComplete 自动完成
+import iAutoComplete from 'iviewSrc/auto-complete';
+//Avatar 头像
+import iAvatar from 'iviewSrc/avatar';
+//BackTop 返回顶部
+import iBackTop from 'iviewSrc/back-top';
+//Badge 徽标数
+import iBadge from 'iviewSrc/badge';
+//Breadcrumb 面包屑
+import iBreadcrumb from 'iviewSrc/breadcrumb';
+const iBreadcrumbItem = iBreadcrumb.Item;
+//Button 按钮
+import iButton from 'iviewSrc/button';
+const iButtonGroup = iButton.Group;
+//Card 卡片
+import iCard from 'iviewSrc/card';
+//Carousel 走马灯
+import iCarousel from 'iviewSrc/carousel';
+const iCarouselItem = iCarousel.Item;
+//Cascader 级联选择
+import iCascader from 'iviewSrc/cascader';
+//Checkbox 多选框
+import iCheckbox from 'iviewSrc/checkbox';
+const iCheckboxGroup = iCheckbox.Group;
+//Circle 进度环
+import iCircle from 'iviewSrc/circle';
+//Collapse 折叠面板
+import iCollapse from 'iviewSrc/collapse';
+const iPanel = iCollapse.Panel;
+//ColorPicker 颜色选择器
+import iColorPicker from 'iviewSrc/color-picker';
+//DatePicker 日期选择器
+import iDatePicker from 'iviewSrc/date-picker';
+//Dropdown 下拉菜单
+import iDropdown from 'iviewSrc/dropdown';
+const iDropdownItem = iDropdown.Item;
+const iDropdownMenu = iDropdown.Menu;
+//Form 表单
+import iForm from 'iviewSrc/form';
+const iFormItem = iForm.Item;
+//Icon 图标
+import iIcon from 'iviewSrc/icon';
+//Input 输入框
+import iInput from 'iviewSrc/input';
+//InputNumber 数字输入框
+import iInputNumber from 'iviewSrc/input-number';
+//LoadingBar 加载进度条
+import iLoadingBar from 'iviewSrc/loading-bar';
+//Menu 导航菜单
+import iMenu from 'iviewSrc/menu';
+const iMenuGroup = iMenu.Group;
+const iMenuItem = iMenu.Item;
+const iSubmenu = iMenu.Sub;
+//Message 全局提示
+import iMessage from 'iviewSrc/message';
+//Modal 对话框
+import iModal from 'iviewSrc/modal';
+//Notice 通知提醒
+import iNotice from 'iviewSrc/notice';
+//Page 分页
+import iPage from 'iviewSrc/page';
+//Poptip 气泡提示
+import iPoptip from 'iviewSrc/poptip';
+//Progress 进度条
+import iProgress from 'iviewSrc/progress';
+//Radio 单选框
+import iRadio from 'iviewSrc/radio';
+const iRadioGroup = iRadio.Group;
+//Rate 评分
+import iRate from 'iviewSrc/rate';
+//Slider 滑块
+import iSlider from 'iviewSrc/slider';
+//Spin 加载中
+import iSpin from 'iviewSrc/spin';
+//Steps 步骤条
+import iSteps from 'iviewSrc/steps';
+const iStep = iSteps.Step;
+//Switch 开关
+import iSwitch from 'iviewSrc/switch';
+//Table 表格
+import iTable from 'iviewSrc/table';
+//Tabs 标签页
+import iTabs from 'iviewSrc/tabs';
+const iTabPane = iTabs.Pane;
+//Tag 标签
+import iTag from 'iviewSrc/tag';
+//Timeline 时间轴
+import iTimeline from 'iviewSrc/timeline';
+const iTimelineItem = iTimeline.Item;
+//TimePicker 时间选择器
+import iTimePicker from 'iviewSrc/time-picker';
+//Tooltip 文字提示
+import iTooltip from 'iviewSrc/tooltip';
+//Transfer 穿梭框
+import iTransfer from 'iviewSrc/transfer';
+//Tree 树形控件
+import iTree from 'iviewSrc/tree';
+//Upload 上传
+import iUpload from 'iviewSrc/upload';
+
+//Grid 栅格
 import {
-    Row,
-    Col
-} from './components/grid';
+    iRow,
+    iCol
+} from 'iviewSrc/grid';
+
+//Select 选择器
 import {
-    Select,
+    iSelect,
     Option,
     OptionGroup
-} from './components/select';
-import locale from './locale';
+} from 'iviewSrc/select';
 
-const iview = {
-    Affix,
-    Alert,
-    AutoComplete,
-    Avatar,
-    BackTop,
-    Badge,
-    Breadcrumb,
-    BreadcrumbItem: Breadcrumb.Item,
-    iButton: Button,
-    Button,
-    ButtonGroup: Button.Group,
-    Card,
-    Carousel,
-    CarouselItem: Carousel.Item,
-    Cascader,
-    Checkbox,
-    CheckboxGroup: Checkbox.Group,
-    iCircle: Circle,
-    Col,
-    iCol: Col,
-    Collapse,
-    ColorPicker,
-    DatePicker,
-    Dropdown,
-    DropdownItem: Dropdown.Item,
-    DropdownMenu: Dropdown.Menu,
-    Form,
-    iForm: Form,
-    FormItem: Form.Item,
-    Icon,
-    Input,
-    iInput: Input,
-    InputNumber,
-    LoadingBar,
-    Menu,
-    iMenu: Menu,
-    MenuGroup: Menu.Group,
-    MenuItem: Menu.Item,
-    Submenu: Menu.Sub,
-    Message,
-    Modal,
-    Notice,
-    Option: Option,
-    iOption: Option,
-    OptionGroup,
-    Page,
-    Panel: Collapse.Panel,
-    Poptip,
-    Progress,
-    iProgress: Progress,
-    Radio,
-    RadioGroup: Radio.Group,
-    Rate,
-    Row,
-    Select,
-    iSelect: Select,
-    Slider,
-    Spin,
-    Step: Steps.Step,
-    Steps,
-    // Switch,
-    iSwitch: Switch,
-    iTable: Table,
-    Table,
-    Tabs: Tabs,
-    TabPane: Tabs.Pane,
-    Tag,
-    Timeline,
-    TimelineItem: Timeline.Item,
-    TimePicker,
-    Tooltip,
-    Transfer,
-    Tree,
-    Upload
-};
 ```

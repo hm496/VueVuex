@@ -58,9 +58,9 @@
   import { qs } from 'utils/tools.js';
   import axiosIns from 'utils/axiosIns.js';
   import Store from 'store/Store.js';
-  import iInput from '_iview/input';
-  import iForm from '_iview/form';
-  import iButton from '_iview/button';
+  import iInput from 'iviewSrc/input';
+  import iForm from 'iviewSrc/form';
+  import iButton from 'iviewSrc/button';
   import { LOGIN_SUCCESS, LOGIN_NOTFOUND, LOGIN_FAILPWD, LOGIN_OUTDATE } from '../utils/responseCode.js';
 
   let iFormItem = iForm.Item;

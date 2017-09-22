@@ -107,7 +107,7 @@
           [LOGIN_SUCCESS]: function () {
             vm.$Message.success({
               content: '登录成功!',
-              duration: 5
+              duration: 2
             });
           },
           [LOGIN_NOTFOUND]: function () {

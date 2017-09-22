@@ -9,8 +9,10 @@
     <div :class="$style.contabs">
       <Contabs></Contabs>
     </div>
-    <div :class="$style.container">
-      <router-view></router-view>
+    <div :class="$style.container" ref="container">
+      <div :class="$style.containerdiv">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +21,14 @@
   import Navbar from '../components/Frame/Navbar.vue';
   import SideMenu from '../components/Frame/SideMenu.vue';
   import Contabs from '../components/Frame/Contabs.vue';
+  import Store from 'store/Store.js';
+  import { types as RootTypes } from '../store/rootVuex.js';
+
+
+  //计算frameConClientHeight
+  function getConHeight(ele, padTop, padBottom) {
+    return ele.clientHeight - parseInt(padTop) - parseInt(padBottom);
+  }
 
   export default {
     name: 'Frame',
@@ -32,13 +42,41 @@
     data: function () {
       return {}
     },
-    methods: {},
+    mounted() {
+      this.resizeEvent();
+      window.addEventListener("resize", this.resizeEvent);
+    },
+    methods: {
+      resizeEvent: function () {
+        let conHeight = getConHeight(this.$refs.container, this.$style.padTop, this.$style.padBottom);
+        if (conHeight === conHeight) {
+          if (Store.state.frameConHeight !== conHeight) {
+            Store.commit(RootTypes.SET_CON_HEIGHT, conHeight);
+          }
+        }
+      }
+    },
     computed: {},
     watch: {},
+    beforeDestroy: function () {
+      window.removeEventListener(this.resizeEvent);
+    }
   };
 </script>
 
 <style lang="scss" module>
+  $padLeft: 7px;
+  $padRight: 7px;
+  $padTop: 7px;
+  $padBottom: 7px;
+
+  :export {
+    padLeft: $padLeft;
+    padRight: $padRight;
+    padTop: $padTop;
+    padBottom: $padBottom;
+  }
+
   .frame_root {
     height: 100%;
   }
@@ -68,9 +106,21 @@
   }
 
   .container {
+    padding-right: $padRight;
+    padding-left: $padLeft;
+    padding-top: $padTop;
+    padding-bottom: $padBottom;
+    background-color: #f1f4f5;
+
     overflow: auto;
     margin-left: 220px;
     margin-top: 40px;
     height: calc(100% - 100px);
+  }
+
+  .containerdiv {
+    min-height: 100%;
+    width: 100%;
+    background-color: #fff;
   }
 </style>

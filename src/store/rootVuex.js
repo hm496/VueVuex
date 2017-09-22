@@ -9,14 +9,15 @@ import router from '../routes/router.js';
 // types
 const CHANGE_LOADING_MASK = 'CHANGE_LOADING_MASK';
 const CHANGE_LOGIN_STATUS = 'CHANGE_LOGIN_STATUS';
-const LOGIN_OUT = 'LOGIN_OUT';
 const SET_LOGIN_INFO = 'SET_LOGIN_INFO';
+const SET_CON_HEIGHT = 'SET_CON_HEIGHT';
 // state
 const state = {
   firstLoad: true,//判断是否首次加载(暂时无用)
   isLoading: false,//显示隐藏loading页面(true显示,false隐藏,默认false)
   isLogin: false,//是否登录(true已登录,false未登录,默认false)
   loginInfo: null,//登录用户信息
+  frameConHeight: 800,//登录用户信息
 };
 // getters
 const getters = {};
@@ -64,13 +65,16 @@ const mutations = {
   [SET_LOGIN_INFO](state, logininfo) {
     state.loginInfo = logininfo;
   },
+  [SET_CON_HEIGHT](state, height) {
+    state.frameConHeight = height;
+  }
 };
 
 export const types = {
   CHANGE_LOADING_MASK,
   CHANGE_LOGIN_STATUS,
-  LOGIN_OUT,
   SET_LOGIN_INFO,
+  SET_CON_HEIGHT,
 };
 
 

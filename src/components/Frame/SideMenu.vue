@@ -38,13 +38,13 @@
               {
                 name: "device",
                 icon: "fa-laptop",
-                text: "设备",
+                text: "分析设备",
                 to: "/source/device"
               },
               {
                 name: "camera",
                 icon: "fa-video-camera",
-                text: "摄像头",
+                text: "采集设备",
                 to: "/source/camera"
               },
               {

@@ -21,6 +21,7 @@ const vendors = [
   'axios',
   'async-validator',
   "popper.js",
+  "events",
 ];
 
 let Config = {

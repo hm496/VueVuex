@@ -33,12 +33,12 @@
               <iForm ref="formValidate" :model="login" :rules="ruleValidate">
                 <iFormItem prop="uname">
                   <iInput size="large" v-model="login.uname" placeholder="请输入用户名"
-                          :class="$style.formItem_base"></iInput>
+                    :class="$style.formItem_base"></iInput>
                 </iFormItem>
 
                 <iFormItem prop="pwd">
                   <iInput size="large" v-model="login.pwd" type="password" placeholder="请输入密码"
-                          :class="$style.formItem_base"></iInput>
+                    :class="$style.formItem_base"></iInput>
                 </iFormItem>
                 <iFormItem class="textCenter" :class="$style.tabel_cell">
                   <iButton type="primary" @click="handleSubmit('formValidate')" :class="$style.formItem_base">立即登录

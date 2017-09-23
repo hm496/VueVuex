@@ -15,6 +15,7 @@
 <script>
   import Store from 'store/Store.js';
   import Loading from './views/Loading.vue';
+  import Emitter from "./utils/EventEmitter";
 
   export default {
     components: {
@@ -23,12 +24,17 @@
     name: '',
     componentName: '',
     props: {},
-    data: function() {
+    data: function () {
       return {
         showLoading: false,
       }
     },
     created() {
+      Emitter.on("httpErr", (err) => {
+        if (err.response && err.response.status === 500) {
+          this.$Message.error('服务器发生错误,请检查网络!');
+        }
+      });
     },
     methods: {},
     computed: {
@@ -37,7 +43,7 @@
       }
     },
     watch: {
-      isLoading: function() {
+      isLoading: function () {
         if (this.isLoading === false) {
           setTimeout(() => {
             //清除Loading界面DOM

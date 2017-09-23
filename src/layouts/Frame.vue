@@ -10,6 +10,7 @@
       <Contabs></Contabs>
     </div>
     <div :class="$style.container" ref="container">
+      <iSpin size="large" fix v-if="!delay"></iSpin>
       <div :class="$style.containerdiv">
         <router-view v-if="delay"></router-view>
       </div>
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+  //Spin 加载中
+  import iSpin from 'iviewSrc/spin';
   import Navbar from '../components/Frame/Navbar.vue';
   import SideMenu from '../components/Frame/SideMenu.vue';
   import Contabs from '../components/Frame/Contabs.vue';
@@ -36,7 +39,8 @@
     components: {
       Navbar,
       SideMenu,
-      Contabs
+      Contabs,
+      iSpin,
     },
     props: {},
     data: function () {
@@ -49,8 +53,8 @@
         this.resizeEvent();
         setTimeout(() => {
           this.delay = true;
-        }, 100);
-      }, 800);
+        }, 200);
+      }, 1000);
       window.addEventListener("resize", this.resizeEvent);
     },
     methods: {
@@ -114,6 +118,7 @@
   }
 
   .container {
+    position: relative;
     padding-right: $padRight;
     padding-left: $padLeft;
     padding-top: $padTop;
@@ -126,6 +131,7 @@
   }
 
   .containerdiv {
+    position: relative;
     min-width: 800px;
     min-height: 100%;
     width: 100%;

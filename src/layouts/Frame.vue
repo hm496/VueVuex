@@ -53,8 +53,8 @@
         this.resizeEvent();
         setTimeout(() => {
           this.delay = true;
-        }, 200);
-      }, 1000);
+        }, 500);
+      }, 1100);
       window.addEventListener("resize", this.resizeEvent);
     },
     methods: {

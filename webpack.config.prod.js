@@ -7,9 +7,15 @@ let cssnano = require('cssnano');
 // let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 let AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
-const PUBLIC_PATH = "/";
+let ProxyConfig = require("./ProxyConfig");
+let PUBLIC_PATH = "/";
+let OUTPUT_PATH = "build";
+if (process.env.BUILD_TYPE === "release") {
+  PUBLIC_PATH = ProxyConfig.publicPath;
+  OUTPUT_PATH = "../main"
+}
+
 const prePath = "release/";
-const outPath = "build";
 const DllPath = {
   manifest: './lib/prod/manifest.json',
   filepath: './lib/prod/libProdDll.js',
@@ -17,15 +23,13 @@ const DllPath = {
   publicPath: `${PUBLIC_PATH}${prePath}js`
 };
 
-console.log(process.env.NODE_ENV === 'production');
-
 module.exports = {
   devtool: "#source-map",
   entry: {
     app: ['./src/index'],
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, OUTPUT_PATH),
     filename: `${prePath}js/[name].[chunkhash:7].js`,
     chunkFilename: `${prePath}js/[name].[id].[chunkhash:7].js`,
     publicPath: `${PUBLIC_PATH}`

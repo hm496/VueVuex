@@ -11,7 +11,7 @@
     "build": "npm run clean&& npm run build:webpack",
     "openBrowser": "node openBrowser.js",
     "prodServer": "cross-env NODE_ENV=production node server.prod.js",
-    "release": "cross-env NODE_ENV=production webpack --config webpack.config.release.js",
+    "release": "cross-env NODE_ENV=production BUILD_TYPE=release webpack --config webpack.config.prod.js",
     "mockServer": "cross-env NODE_ENV=development MOCK_SERVER=true node server.dev.js",
     "webpackDevDLL": "cross-env NODE_ENV=development webpack --config webpack.dll.js",
     "webpackProdDLL": "cross-env NODE_ENV=production webpack --config webpack.dll.js"

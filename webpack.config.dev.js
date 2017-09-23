@@ -2,6 +2,12 @@ let path = require('path');
 let webpack = require('webpack');
 let htmlWebpackPlugin = require('html-webpack-plugin');
 let FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+let AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+
+const DllPath = {
+  manifest: './lib/prod/manifest.json',
+  filepath: './lib/prod/libProdDll.js',
+};
 
 module.exports = {
   devtool: "cheap-module-eval-source-map",
@@ -117,6 +123,10 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require(DllPath.manifest),
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       __DEV__: true,
@@ -126,6 +136,10 @@ module.exports = {
       template: path.join(__dirname, './src/index.ejs'),
       inject: 'body', // Inject all scripts into the body
       // hash: true,
+    }),
+    new AddAssetHtmlPlugin({
+      filepath: DllPath.filepath,
+      includeSourcemap: false,
     }),
     new webpack.NoEmitOnErrorsPlugin(),//错误不打断程序
     new webpack.HotModuleReplacementPlugin(),//模块热替换

@@ -5,8 +5,19 @@ let fs = require('fs');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 let cssnano = require('cssnano');
 // let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+let AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
+const PUBLIC_PATH = "/";
 const prePath = "release/";
+const outPath = "build";
+const DllPath = {
+  manifest: './lib/prod/manifest.json',
+  filepath: './lib/prod/libProdDll.js',
+  outputPath: `${prePath}js`,
+  publicPath: `${PUBLIC_PATH}${prePath}js`
+};
+
+console.log(process.env.NODE_ENV === 'production');
 
 module.exports = {
   devtool: "#source-map",
@@ -17,7 +28,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: `${prePath}js/[name].[chunkhash:7].js`,
     chunkFilename: `${prePath}js/[name].[id].[chunkhash:7].js`,
-    publicPath: "/"
+    publicPath: `${PUBLIC_PATH}`
   },
   module: {
     rules: [
@@ -128,6 +139,10 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss', '.css', '.vue'],
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require(DllPath.manifest),
+    }),
     // new BundleAnalyzerPlugin(),//打包模块结构分析
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -136,14 +151,15 @@ module.exports = {
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
     // split vendor js into its own file
+    //提取公共模块
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: ({ resource }) => (
         resource &&
         resource.indexOf('node_modules') >= 0 &&
-        /\.js$/.test(resource)
+        /\.(jsx?|vue|css)$/.test(resource)
       ),
-    }),//提取公共模块
+    }),
     new htmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, './src/index.ejs'),
@@ -158,6 +174,11 @@ module.exports = {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
+    }),
+    new AddAssetHtmlPlugin({
+      filepath: DllPath.filepath,
+      outputPath: DllPath.outputPath,
+      publicPath: DllPath.publicPath
     }),
     new ExtractTextPlugin({
       filename: (getPath) => {

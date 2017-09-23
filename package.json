@@ -12,7 +12,9 @@
     "openBrowser": "node openBrowser.js",
     "prodServer": "cross-env NODE_ENV=production node server.prod.js",
     "release": "cross-env NODE_ENV=production webpack --config webpack.config.release.js",
-    "mockServer": "cross-env NODE_ENV=development MOCK_SERVER=true node server.dev.js"
+    "mockServer": "cross-env NODE_ENV=development MOCK_SERVER=true node server.dev.js",
+    "webpackDevDLL": "cross-env NODE_ENV=development webpack --config webpack.dll.js",
+    "webpackProdDLL": "cross-env NODE_ENV=production webpack --config webpack.dll.js"
   },
   "author": "",
   "license": "ISC",
@@ -30,6 +32,7 @@
     "vuex-router-sync": "^4.3.1"
   },
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^2.1.2",
     "ajv": "^5.2.2",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.25.0",
@@ -64,6 +67,7 @@
     "webpack": "^3.3.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.4.5",
-    "webpack-hot-middleware": "^2.19.1"
+    "webpack-hot-middleware": "^2.19.1",
+    "webpack-merge": "^4.1.0"
   }
 }

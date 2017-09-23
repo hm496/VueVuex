@@ -17,6 +17,11 @@ html, body {
     vertical-align: top;
 }
 
+/*不换行*/
+.nowrap {
+    white-space: nowrap;
+}
+
 /*左浮动*/
 .floatLeft {
     float: left;

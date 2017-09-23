@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.container">
-    <div>
-      <ul class="ulclear clearfix floatLeft" :class="$style.navbar_toolbar">
+    <div class="clearfix">
+      <ul class="ulclear clearfix floatLeft overhidden" :class="[$style.navbar_toolbar,$style.navHeight]">
         <li class="floatLeft">
           <a :class="[$style.hamburger_a,$style.hamburger_hover]" href="javascript:;">
             <i :class="$style.hamburger_i"
-               class="icon hamburger hamburger-arrow-left">
+              class="icon hamburger hamburger-arrow-left">
               <span :class="$style.hamburger_bar1"></span>
               <span :class="$style.hamburger_bar2"></span>
               <span :class="$style.hamburger_bar3"></span>
@@ -13,7 +13,7 @@
           </a>
         </li>
         <li class="floatLeft" :class="$style.btn_wrapper">
-          <ul class="ulclear clearfix overhidden heightFull">
+          <ul class="ulclear clearfix overhidden" :class="$style.navHeight">
             <li class="floatLeft">
               <NavBtn fontClass="wb-library" :exact="false" to="/source">资源管理</NavBtn>
             </li>
@@ -27,26 +27,26 @@
         </li>
       </ul>
 
-      <ul :class="$style.icon_ul" class="ulclear clearfix floatRight heightFull">
-        <li class="floatLeft">
+      <ul :class="$style.icon_ul" class="ulclear clearfix floatRight heightFull nowrap">
+        <li class="inline-block">
           <IconBtn icon="wb-bell" :showtip="true">通知</IconBtn>
         </li>
-        <li class="floatLeft">
+        <li class="inline-block">
           <IconBtn icon="wb-layout" :showtip="true">布局</IconBtn>
         </li>
-        <li class="floatLeft">
+        <li class="inline-block">
           <IconBtn icon="wb-mobile" :showtip="true">手机</IconBtn>
         </li>
-        <li class="floatLeft">
+        <li class="inline-block">
           <IconBtn icon="wb-download" :showtip="true">下载</IconBtn>
         </li>
-        <li class="floatLeft">
+        <li class="inline-block">
           <IconBtn icon="wb-user" :showtip="true">在线咨询</IconBtn>
         </li>
-        <li class="floatLeft">
+        <li class="inline-block">
           <IconBtn icon="wb-expand" :showtip="true">通知</IconBtn>
         </li>
-        <li class="floatLeft">
+        <li class="inline-block">
           <IconBtn :icon="`${$style.fa} fa-sign-out`" @click="signout">登出</IconBtn>
         </li>
 
@@ -84,6 +84,11 @@
 </script>
 
 <style lang="scss" module>
+  $navHeight: 60px;
+  .navHeight {
+    height: $navHeight;
+  }
+
   a.fa {
     font: normal normal normal 16px FontAwesome;
     line-height: 22px;

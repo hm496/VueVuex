@@ -46,9 +46,11 @@
     },
     mounted() {
       setTimeout(() => {
-        this.delay = true;
+        this.resizeEvent();
+        setTimeout(() => {
+          this.delay = true;
+        }, 100);
       }, 800);
-      this.resizeEvent();
       window.addEventListener("resize", this.resizeEvent);
     },
     methods: {
@@ -84,6 +86,7 @@
 
   .frame_root {
     height: 100%;
+    overflow: hidden;
   }
 
   .navbar {

@@ -22,12 +22,18 @@ const vendors = [
   'async-validator',
   "popper.js",
   "events",
+  "iview/src/directives/transfer-dom.js",
 ];
 
 let Config = {
   devtool: devtool,
   entry: {
     [entryName]: vendors,
+  },
+  module: {
+    rules: [
+      { test: /iview.src.*?js$/, loader: 'babel-loader' },
+    ]
   },
   output: {
     path: path.resolve(__dirname, outPath),

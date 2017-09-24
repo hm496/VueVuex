@@ -1,4 +1,5 @@
 //全局样式
+import 'iview/dist/styles/iview.css';//iview样式
 import './styles/common_css.js';
 //兼容polyfill
 import './utils/polyfill';

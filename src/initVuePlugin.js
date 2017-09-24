@@ -5,7 +5,6 @@ import Vuex from 'vuex'
 import "./utils/vuePlugin/index";
 
 //iview相关组件
-import 'iview/dist/styles/iview.css';//iview样式
 import LoadingBar from 'iviewSrc/loading-bar';
 import Message from 'iviewSrc/message';
 import Modal from 'iviewSrc/modal';

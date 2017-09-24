@@ -5,8 +5,8 @@
       <template v-for="item in listObj.arr">
         <li :class="$style.menu_item">
           <a href="javascript:;"
-             @click="turnPage(item)"
-             :class="{ [$style.menu_item_a]: true,[$style.menu_item_active]: item.active }">
+            @click="turnPage(item)"
+            :class="{ [$style.menu_item_a]: true,[$style.menu_item_active]: item.active }">
             <i class="fa" aria-hidden="true" :class="[$style.menu_item_icon,item.icon]"></i>
             <span :class="$style.menu_item_span">{{item.text}}</span><span class="site-menu-arrow"></span>
           </a>
@@ -125,13 +125,13 @@
   }
 
   .menu_item:hover > a {
-    color: rgba(255, 255, 255, .9);
-    background-color: rgba(255, 255, 255, .02);
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.16);
   }
 
   .menu_item_active {
-    color: rgba(255, 255, 255, .9);
-    background-color: rgba(255, 255, 255, .02);
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.16);
   }
 
 </style>

@@ -61,29 +61,44 @@ const routes = [
         meta: { requiresAuth: true },//需要登录
         children: [
           {
-            alias: '',
+            path: '',
+            redirect: { name: 'device' }//重定向
+          },
+          {
             name: 'device',
             path: 'device',
             component: Device,
-            meta: { requiresAuth: true },//需要登录
+            meta: {
+              requiresAuth: true,
+              title: "分析设备",
+            },//需要登录
           },
           {
             name: 'camera',
             path: 'camera',
             component: Camera,
-            meta: { requiresAuth: true },//需要登录
+            meta: {
+              requiresAuth: true,
+              title: "采集设备",
+            },//需要登录
           },
           {
             name: 'personlib',
             path: 'personlib',
             component: PersonLib,
-            meta: { requiresAuth: true },//需要登录
+            meta: {
+              requiresAuth: true,
+              title: "人员库",
+            },//需要登录
           },
           {
             name: 'classlib',
             path: 'classlib',
             component: ClassLib,
-            meta: { requiresAuth: true },//需要登录
+            meta: {
+              requiresAuth: true,
+              title: "分类库",
+            },//需要登录
           },
         ],
       },
@@ -94,17 +109,26 @@ const routes = [
         meta: { requiresAuth: true },//需要登录
         children: [
           {
-            alias: '',
+            path: '',
+            redirect: { name: 'identitysuc' }//重定向
+          },
+          {
             name: 'identitysuc',
             path: 'identitysuc',
             component: IdentitySuc,
-            meta: { requiresAuth: true },//需要登录
+            meta: {
+              requiresAuth: true,
+              title: "识别成功",
+            },//需要登录
           },
           {
             name: 'identityfail',
             path: 'identityfail',
             component: IdentityFail,
-            meta: { requiresAuth: true },//需要登录
+            meta: {
+              requiresAuth: true,
+              title: "未识别",
+            },//需要登录
           },
         ]
       },
@@ -115,7 +139,10 @@ const routes = [
         meta: { requiresAuth: true },//需要登录
         children: [
           {
-            alias: '',
+            path: '',
+            redirect: { name: 'usermanage' }//重定向
+          },
+          {
             name: 'usermanage',
             path: 'usermanage',
             component: UserManage,

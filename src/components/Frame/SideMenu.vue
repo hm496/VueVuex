@@ -74,7 +74,7 @@
               {
                 name: "identityfail",
                 icon: "fa-thumbs-down",
-                text: "未识别成功",
+                text: "未识别",
                 to: "/identity/identityfail"
               }
             ]

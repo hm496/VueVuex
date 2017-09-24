@@ -1,9 +1,9 @@
+//全局样式
+import './styles/common_css.js';
 //兼容polyfill
 import './utils/polyfill';
 //初始化vue
 import './initVue';
-//全局样式
-import './styles/common_css.js';
 //路由状态同步到Vuex
 import './routes/vuex-router';
 

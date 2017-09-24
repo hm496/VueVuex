@@ -3,8 +3,8 @@
     :class="sss.li">
     <a :class="{[sss.a]:true,[sss.closeable]:closable}">
       <slot></slot>
-      <i v-if="closable" class="icon wb-close-mini" :class="sss.i"></i>
     </a>
+    <i v-if="closable" class="icon wb-close-mini" :class="sss.i" @click.stop="doThis"></i>
   </router-link>
 </template>
 
@@ -30,7 +30,10 @@
     },
     created() {
     },
-    methods: {},
+    methods: {
+      doThis() {
+      }
+    },
     computed: {},
     watch: {},
   };
@@ -43,6 +46,8 @@
     line-height: 40px;
     width: 105px;
     color: #76838f;
+    position: relative;
+
   }
 
   .a {
@@ -53,7 +58,6 @@
     width: 100%;
     font-size: 14px;
     color: #76838f;
-    position: relative;
   }
 
   .a:hover, .a:active {
@@ -61,11 +65,13 @@
   }
 
   .i {
+    font-size: 14px;
     height: 14px;
     line-height: 14px;
     position: absolute;
     top: 12px;
     right: 12px;
+    cursor: pointer;
   }
 
   .i:hover {

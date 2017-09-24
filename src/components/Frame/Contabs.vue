@@ -3,7 +3,7 @@
     <ul class="heightFull nowrap" :class="sss.ftsize0">
       <ContabsBtn to="/home">首页</ContabsBtn>
       <ContabsBtn to="/source/device" closable>分析设备</ContabsBtn>
-      <ContabsBtn to="/source/camera" closable>采集设备</ContabsBtn>
+      <ContabsBtn to="/system/usermanage" closable>用户管理</ContabsBtn>
     </ul>
   </div>
 </template>

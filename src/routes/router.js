@@ -55,7 +55,6 @@ const routes = [
         meta: { requiresAuth: true },//需要登录
       },
       {
-        name: 'source',
         path: '/source',
         component: ChildWrapper,
         meta: { requiresAuth: true },//需要登录
@@ -103,7 +102,6 @@ const routes = [
         ],
       },
       {
-        name: 'identity',
         path: '/identity',
         component: ChildWrapper,
         meta: { requiresAuth: true },//需要登录
@@ -133,7 +131,6 @@ const routes = [
         ]
       },
       {
-        name: 'system',
         path: '/system',
         component: ChildWrapper,
         meta: { requiresAuth: true },//需要登录

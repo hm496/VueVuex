@@ -5,8 +5,8 @@ let FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 let AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 const DllPath = {
-  manifest: './lib/prod/manifest.json',
-  filepath: './lib/prod/libProdDll.js',
+  manifest: './lib/dev/manifest.json',
+  filepath: './lib/dev/libDevDll.js',
 };
 
 module.exports = {

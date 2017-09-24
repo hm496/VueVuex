@@ -74,7 +74,7 @@
     position: absolute;
     border: 5px solid transparent;
     border-bottom: 5px solid #484848;
-    top: -10px;
+    top: -9px;
     left: 50%;
     transform: translateX(-50%);
   }

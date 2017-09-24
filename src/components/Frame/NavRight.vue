@@ -44,7 +44,7 @@
           <IconBtn icon="wb-user" :showtip="true">在线咨询</IconBtn>
         </li>
         <li class="inline-block">
-          <IconBtn icon="wb-expand" :showtip="true">通知</IconBtn>
+          <IconBtn icon="wb-expand" :showtip="true" @click.native="changeScreen">全屏</IconBtn>
         </li>
         <li class="inline-block">
           <IconBtn :icon="`${$style.fa} fa-sign-out`" @click="signout">登出</IconBtn>
@@ -74,8 +74,60 @@
     created() {
     },
     methods: {
-      signout: function () {
+      signout() {
         Store.dispatch("loginOut");
+      },
+      changeScreen() {
+        let screenState = false;//未全屏
+        if (document.fullscreen !== undefined) {
+          screenState = !!document.fullscreen;
+        } else if (document.mozFullScreen !== undefined) {
+          screenState = !!document.mozFullScreen;
+        } else if (document.webkitIsFullScreen !== undefined) {
+          screenState = !!document.webkitIsFullScreen;
+        } else if (document.msFullscreenElement !== undefined) {
+          screenState = !!document.msFullscreenElement;
+        }
+        if (screenState) {
+          //取消全屏
+          this.cancelFullScreen();
+        } else {
+          //全屏
+          this.fullscreen();
+        }
+      },
+      cancelFullScreen() {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+        else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        }
+        else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        }
+        else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      },
+      fullscreen() {
+        let docElm = document.documentElement;
+        //W3C
+        if (docElm.requestFullscreen) {
+          docElm.requestFullscreen();
+        }
+        //FireFox
+        else if (docElm.mozRequestFullScreen) {
+          docElm.mozRequestFullScreen();
+        }
+        //Chrome等
+        else if (docElm.webkitRequestFullScreen) {
+          docElm.webkitRequestFullScreen();
+        }
+        //IE11
+        else if (docElm.msRequestFullscreen) {
+          docElm.msRequestFullscreen();
+        }
       }
     },
     computed: {},
